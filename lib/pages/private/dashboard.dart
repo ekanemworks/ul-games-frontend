@@ -11,8 +11,27 @@ class _DashboardPageState extends State<DashboardPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('sas')),
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          title: ClipRRect(
+            // borderRadius: BorderRadius.circular(20),
+            child: Image.asset('assets/mainlogo.png'),
+          ),
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.notifications),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.list),
+            )
+          ],
+        ),
+        body: Container(),
+      ),
     );
   }
 }
