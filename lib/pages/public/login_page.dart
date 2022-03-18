@@ -23,75 +23,88 @@ class _LoginPageState extends State<LoginPage> {
         accentColor: Colors.deepOrange,
       ),
       home: Scaffold(
-          body: Container(
-        width: double.maxFinite, // maximum width
-        height: double.maxFinite, // maxium height
-        decoration: const BoxDecoration(
-          // in container if you want to show a background image you need box decoration
-          image: DecorationImage(
-              image: AssetImage('assets/landing_/backgroundimg.png'),
-              fit: BoxFit.cover),
-        ),
-        child: Center(
-          child: Container(
-            height: 640,
-            // constraints: BoxConstraints(
-            //     maxWidth: MediaQuery.of(context).size.width - 45,
-            //     maxHeight: 640,),
-            // max
-            width: MediaQuery.of(context).size.width - 45,
-            // margin: const EdgeInsets.only(left: 40, right: 40),
-            // color: Colors.grey,
-            child: Column(
-              // crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  alignment: Alignment.centerLeft,
-                  padding: EdgeInsets.only(bottom: 10),
-                  child: Text(
-                    'Login',
-                    style: TextStyle(
+        body: Container(
+          width: double.maxFinite, // maximum width
+          height: double.maxFinite, // maxium height
+          decoration: const BoxDecoration(
+            // in container if you want to show a background image you need box decoration
+            image: DecorationImage(
+                image: AssetImage('assets/landing_img/img2.png'),
+                fit: BoxFit.cover),
+          ),
+          child: Center(
+            child: Container(
+              height: 820,
+              alignment: Alignment.center,
+              // color: Colors.grey,
+              // constraints: BoxConstraints(
+              //     maxWidth: MediaQuery.of(context).size.width - 45,
+              //     maxHeight: 640,),
+              // max
+              width: MediaQuery.of(context).size.width - 45,
+              // margin: const EdgeInsets.only(left: 40, right: 40),
+              // color: Colors.grey,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    padding: EdgeInsets.only(bottom: 10),
+                    child: Text(
+                      'Login',
+                      style: TextStyle(
                         fontSize: 29,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xffE7510E)),
-                  ),
-                ),
-                Container(
-                  alignment: Alignment.centerLeft,
-                  padding: EdgeInsets.only(bottom: 29),
-                  child: Text(
-                    'Securely login to your account',
-                    style: TextStyle(fontSize: 18),
-                  ),
-                ),
-                Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    side: BorderSide(
-                      color: Colors.grey.withOpacity(0.5),
-                      width: 1,
+                      ),
                     ),
                   ),
-                  child: Container(
-                    height: 460,
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    padding: EdgeInsets.only(bottom: 29),
+                    child: Text(
+                      'Securely login to your account',
+                      style: TextStyle(fontSize: 18),
+                    ),
+                  ),
+                  //  decoration: BoxDecoration(
+                  //               gradient: LinearGradient(
+                  //                   colors: [Colors.pink, Colors.green],
+                  //                   begin: Alignment.topCenter,
+                  //                   end: Alignment.bottomCenter,
+                  //                 ),
+                  //               color: Colors.black,
+                  //               borderRadius: BorderRadius.circular(20.0),
+                  //             ),
+                  Container(
+                    // color: Colors.red,
+                    height: 400,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Color(0xffFEEFA8), Color(0xffF3A477)],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                      ),
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(20.0),
+                    ),
                     padding: EdgeInsets.only(right: 25, left: 25),
                     child: Form(
                       key: _formKey,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          // first name
-
                           // phone number
                           Padding(
                             padding: const EdgeInsets.only(top: 23),
                             child: TextFormField(
                               decoration: const InputDecoration(
                                 labelText: 'Phone Number ',
+                                fillColor: Colors.white,
+                                filled: true,
                                 prefix: Text('+234'),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.all(
-                                    Radius.circular(14.0),
+                                    Radius.circular(23.0),
                                   ),
                                 ),
                               ),
@@ -115,86 +128,104 @@ class _LoginPageState extends State<LoginPage> {
                           // confirm password
                           Padding(
                             padding: const EdgeInsets.only(top: 23),
-                            child: Column(
-                              children: [
-                                TextFormField(
-                                  decoration: InputDecoration(
-                                    labelText: 'Password',
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(
-                                        Radius.circular(14.0),
-                                      ),
-                                    ),
-                                    suffixIcon: IconButton(
-                                      icon: _passwordVisibility == false
-                                          ? const Icon(Icons.visibility_off)
-                                          : const Icon(Icons.visibility),
-                                      onPressed: () {
-                                        setState(() {
-                                          _passwordVisibility =
-                                              !_passwordVisibility;
-                                        });
-                                      },
-                                    ),
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                labelText: 'Password',
+                                fillColor: Colors.white,
+                                filled: true,
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(23.0),
                                   ),
-                                  obscureText: !_passwordVisibility,
-                                  validator: (value) {
-                                    if (value!.isEmpty) {
-                                      return 'Enter password';
-                                    }
-                                  },
-                                  onSaved: (value) {
-                                    _password = value!;
+                                ),
+                                suffixIcon: IconButton(
+                                  icon: _passwordVisibility == false
+                                      ? const Icon(Icons.visibility_off)
+                                      : const Icon(Icons.visibility),
+                                  onPressed: () {
+                                    setState(() {
+                                      _passwordVisibility =
+                                          !_passwordVisibility;
+                                    });
                                   },
                                 ),
-                                Container(
-                                  alignment: Alignment.centerRight,
-                                  child: TextButton(
-                                    child: Text('Forgot Password?'),
-                                    onPressed: () {},
-                                  ),
-                                )
-                              ],
+                              ),
+                              obscureText: !_passwordVisibility,
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return 'Enter password';
+                                }
+                              },
+                              onSaved: (value) {
+                                _password = value!;
+                              },
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.centerRight,
+                            child: TextButton(
+                              child: Text(
+                                'Forgot Password?',
+                                style: TextStyle(
+                                    color: Colors.black, letterSpacing: 0.8),
+                              ),
+                              onPressed: () {},
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.centerRight,
+                            child: Row(
+                              children: [],
                             ),
                           ),
 
                           const SizedBox(height: 20),
-                          SizedBox(
-                            width: double.maxFinite, // <-- Your width
-                            height: 55,
-                            child: ElevatedButton(
-                              child: const Text(
-                                'Login',
-                                style: TextStyle(fontSize: 18),
-                              ),
-                              onPressed: () {
-                                // if (!_formKey.currentState!.validate()) {
-                                //   return;
-                                // }
-                                // _formKey.currentState!.save();
-
-                                // // print(_age);
-                                // // print(myInitialItem);
-
-                                // var loginmapdata = {
-                                //   'phonenumber': _phoneNumber,
-                                //   'password': _password,
-                                // };
-
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => DashboardPage(),
-                                  ),
-                                );
-                              },
-                              style: ButtonStyle(
-                                shape: MaterialStateProperty.all<
-                                    RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20.0),
-                                  ),
+                          Container(
+                            decoration: BoxDecoration(
+                                color: Color(0xffFDAF02),
+                                borderRadius: BorderRadius.circular(23.0),
+                                border: Border.all(color: Colors.black)),
+                            child: SizedBox(
+                              width: double.maxFinite, // <-- Your width
+                              height: 55,
+                              child: ElevatedButton(
+                                child: const Text(
+                                  'Login',
+                                  style: TextStyle(
+                                      fontSize: 18, color: Colors.black),
                                 ),
+                                onPressed: () {
+                                  // if (!_formKey.currentState!.validate()) {
+                                  //   return;
+                                  // }
+                                  // _formKey.currentState!.save();
+
+                                  // // print(_age);
+                                  // // print(myInitialItem);
+
+                                  // var loginmapdata = {
+                                  //   'phonenumber': _phoneNumber,
+                                  //   'password': _password,
+                                  // };
+
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => DashboardPage(),
+                                    ),
+                                  );
+                                },
+                                // style: ButtonStyle(
+                                //   shape: MaterialStateProperty.all<
+                                //       RoundedRectangleBorder>(
+                                //     RoundedRectangleBorder(
+                                //       borderRadius: BorderRadius.circular(20.0),
+                                //     ),
+                                //   ),
+                                // ),
+                                style: ElevatedButton.styleFrom(
+                                    primary: Colors.transparent,
+                                    shadowColor: Colors.transparent),
                               ),
                             ),
                           ),
@@ -204,31 +235,31 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   ),
-                ),
-                Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text('Don’t have an account ?'),
-                      TextButton(
-                        child: Text('Register'),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => RegisterPage(),
-                            ),
-                          );
-                        },
-                      )
-                    ],
+                  Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('Already have an account ?'),
+                        TextButton(
+                          child: Text('Log In'),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LoginPage(),
+                              ),
+                            );
+                          },
+                        )
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
-      )),
+      ),
     );
   }
 }

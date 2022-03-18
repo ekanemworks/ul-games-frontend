@@ -23,17 +23,28 @@ class _GetStartedState extends State<GetStarted> {
           decoration: const BoxDecoration(
             // in container if you want to show a background image you need box decoration
             image: DecorationImage(
-                image: AssetImage('assets/landing_/backgroundimg.png'),
+                image: AssetImage('assets/landing_img/img2.png'),
                 fit: BoxFit.cover),
           ),
           child: Center(
             child: Container(
-              height: 300,
+              height: 600,
               width: double.maxFinite - 100,
               margin: const EdgeInsets.only(left: 40, right: 40),
-              // color: Colors.red,
+              // color: Colors.grey,
               child: Column(
                 children: [
+                  Container(
+                    height: 180,
+                    width: 180,
+                    margin: EdgeInsets.only(bottom: 124),
+                    decoration: BoxDecoration(
+                      // in container if you want to show a background image you need box decoration
+                      image: DecorationImage(
+                          image: AssetImage('assets/main/unlockgames_180.png'),
+                          fit: BoxFit.cover),
+                    ),
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: SizedBox(
@@ -75,8 +86,6 @@ class _GetStartedState extends State<GetStarted> {
                               borderRadius: BorderRadius.circular(20.0),
                             ),
                           ),
-                          // backgroundColor:
-                          //     MaterialStateProperty.all(Colors.white),
                         ),
                         onPressed: () {
                           Navigator.push(

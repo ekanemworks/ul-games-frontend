@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trivial_game/pages/public/landing.dart';
+import 'package:trivial_game/pages/public/start_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,16 +32,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    return LandingPage();
+    return StartScreen();
   }
 }

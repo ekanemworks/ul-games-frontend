@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trivial_game/pages/private/dashboard_body.dart';
 import 'package:trivial_game/pages/public/register_page.dart';
 
 class DashboardPage extends StatefulWidget {
@@ -13,24 +14,17 @@ class _DashboardPageState extends State<DashboardPage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          title: ClipRRect(
-            // borderRadius: BorderRadius.circular(20),
-            child: Image.asset('assets/mainlogo.png'),
+        body: Container(
+          width: double.maxFinite, // maximum width
+          height: double.maxFinite, // maxium height
+          decoration: const BoxDecoration(
+            // in container if you want to show a background image you need box decoration
+            image: DecorationImage(
+                image: AssetImage('assets/landing_img/img2.png'),
+                fit: BoxFit.cover),
           ),
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.notifications),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.list),
-            )
-          ],
+          child: DashboardBody(),
         ),
-        body: Container(),
       ),
     );
   }

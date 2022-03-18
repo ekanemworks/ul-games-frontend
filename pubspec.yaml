@@ -79,8 +79,20 @@ flutter:
     - assets/landing_/l2.png
     - assets/landing_/l3.png
     - assets/landing_/l4.png
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+    #   - images/a_dot_burr.jpeg
+    - assets/landing_img/img1.png
+    - assets/landing_img/img2.png
+    - assets/landing_img/img3.png
+    - assets/landing_img/img4.png
+    - assets/landing_img/img5.png
+    - assets/main/unlockgames_98.png
+    - assets/main/unlockgames_180.png
+    #   - images/a_dot_ham.jpeg
+    - assets/categories/entertainment.png
+    - assets/categories/fashion.png
+    - assets/categories/music.png
+    - assets/categories/politics.png
+    - assets/categories/sport.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
