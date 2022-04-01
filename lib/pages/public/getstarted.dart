@@ -46,59 +46,74 @@ class _GetStartedState extends State<GetStarted> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: SizedBox(
-                      width: double.maxFinite,
-                      height: 60,
-                      child: ElevatedButton(
-                        style: ButtonStyle(
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20.0),
-                            ),
-                          ),
-                          backgroundColor:
-                              MaterialStateProperty.all(Color(0xffE7510E)),
+                    padding: EdgeInsets.all(8),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [Color(0xffFEEFA8), Color(0xffF3A477)],
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
                         ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => RegisterPage(),
-                            ),
-                          );
-                        },
-                        child: const Text('Get Started'),
+                        borderRadius: BorderRadius.circular(23.0),
+                        border: Border.all(color: Colors.black),
+                      ),
+                      child: SizedBox(
+                        width: double.maxFinite, // <-- Your width
+                        height: 55,
+                        child: ElevatedButton(
+                          child: const Text(
+                            'Get Started',
+                            style: TextStyle(fontSize: 18, color: Colors.black),
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => RegisterPage(),
+                              ),
+                            );
+                          },
+                          style: ElevatedButton.styleFrom(
+                              primary: Colors.transparent,
+                              shadowColor: Colors.transparent),
+                        ),
                       ),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: SizedBox(
-                      width: double.maxFinite,
-                      height: 60,
-                      child: OutlinedButton(
-                        style: ButtonStyle(
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20.0),
-                            ),
+                    padding: EdgeInsets.all(8),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(23.0),
+                        border: Border.all(
+                          color: Color(0xffD38200),
+                        ),
+                      ),
+                      child: SizedBox(
+                        width: double.maxFinite, // <-- Your width
+                        height: 55,
+                        child: ElevatedButton(
+                          child: const Text(
+                            'Log In',
+                            style: TextStyle(fontSize: 18, color: Colors.black),
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => RegisterPage(),
+                              ),
+                            );
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.transparent,
+                            shadowColor: Colors.transparent,
                           ),
                         ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => LoginPage(),
-                            ),
-                          );
-                        },
-                        child: const Text('Log In'),
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

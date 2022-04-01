@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:trivial_game/pages/public/getstarted.dart';
 import 'package:trivial_game/pages/public/login_page.dart';
+import 'package:trivial_game/pages/public/register_page.dart';
 
 class LandingPage extends StatefulWidget {
   @override
@@ -36,8 +37,8 @@ class _LandingPageState extends State<LandingPage> {
 
   String casestudy = "test1.jpg";
 
-  PageController controller = PageController();
-
+  PageController _controller = PageController();
+  int _currentPage = 0;
   @override
   void initState() {
     // use session management class to set session
@@ -67,176 +68,299 @@ class _LandingPageState extends State<LandingPage> {
                 image: AssetImage('assets/landing_img/img2.png'),
                 fit: BoxFit.cover),
           ),
-          child: PageView.builder(
-            // scrollDirection: Axis.vertical,
-            controller: controller,
-            itemCount: 3,
-            itemBuilder: (_, indexx) {
-              return Container(
-                width: double.maxFinite, // maximum width
-                height: double.maxFinite, // maxium height
-                child: Container(
-                  margin: const EdgeInsets.only(top: 60),
-                  child: Column(
-                    children: [
-                      Expanded(
-                        flex: 4,
-                        child: Container(
-                          // color: Colors.green,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                // color: Colors.blue,
-                                padding: EdgeInsets.only(bottom: 20),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      // width: 220,
-                                      // height: 220,
-                                      margin: const EdgeInsets.fromLTRB(
-                                          10, 10, 10, 10),
-                                      // color: Colors.purple,
-                                      // child: Image.asset('assets/default.png'),
-                                      child: content_Images[indexx] != ""
-                                          ? ClipRRect(
-                                              // borderRadius: BorderRadius.circular(20),
-                                              child: Image.asset(
-                                                  content_Images[indexx]),
-                                            )
-                                          : Container(),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Container(
-                                // color: Colors.purple,
-                                padding: EdgeInsets.only(top: 20, bottom: 10),
-                                // height: 20,
-                                alignment: Alignment.center,
-                                child: Container(
-                                  // color: Colors.red,
-                                  width: 103,
-                                  child: Row(
-                                    children: List.generate(3, (indexDots) {
-                                      return Container(
-                                        margin: const EdgeInsets.only(left: 4),
-                                        height: 8,
-                                        width: indexx == indexDots ? 30 : 30,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(4),
-                                            color: indexx == indexDots
-                                                ? Color(0xffF2BC1A)
-                                                : Colors.grey.shade400),
-                                      );
-                                    }),
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                alignment: Alignment.center,
-                                // color: Colors.pink,
-                                padding: EdgeInsets.only(top: 20),
-                                child: Text(
-                                  topTexts[indexx],
-                                  style: TextStyle(
-                                      fontSize: 23,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                              Container(
-                                // width: 300,
-                                // color: Colors.pink,
-                                margin: EdgeInsets.only(left: 15, right: 15),
-                                height: 100,
-                                // margin: const EdgeInsets.only(top: 10),
-                                alignment: Alignment.center,
+          child: Stack(
+            children: [
+              PageView.builder(
+                // scrollDirection: Axis.vertical,
+                controller: _controller,
+                itemCount: 3,
+                onPageChanged: (int index) {
+                  setState(() {
+                    _currentPage = index;
+                  });
+                },
+                itemBuilder: (_, indexx) {
+                  return Container(
+                    width: double.maxFinite, // maximum width
+                    height: double.maxFinite, // maxium height
+                    // color: Colors.grey,
+                    child: Container(
+                      margin: const EdgeInsets.only(top: 60),
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                              // in container if you want to show a background image you need box decoration
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                      'assets/main/unlockgames_98.png'),
+                                  fit: BoxFit.cover),
+                            ),
+                            // ClipRRect(
 
-                                child: Text(
-                                  bodyTexts[indexx],
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                    fontSize: 19.0,
-                                    color: Color(0xff808080),
-                                    // color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                // width: 300,
-                                width: double.maxFinite,
-                                alignment: Alignment.center,
-
-                                // color: Colors.red,
-                                margin: const EdgeInsets.only(top: 20),
-                                child:
-
-                                    // ElevatedButton(
-                                    //   onPressed: () {},
-                                    //   child: Icon(Icons.arrow_forward_ios),
-                                    //   // color: Color(0xffE7510E),
-                                    // )
-
-                                    ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                      shape: const CircleBorder(),
-                                      primary: Color(0xffF2BC1A)),
-                                  child: Container(
-                                    width: 80,
-                                    height: 80,
-                                    alignment: Alignment.center,
-                                    decoration: const BoxDecoration(
-                                        shape: BoxShape.circle),
-                                    child: const Icon(Icons.arrow_forward_ios),
-                                  ),
-                                  onPressed: () {},
-                                ),
-                              ),
-                              Container(
-                                alignment: Alignment.centerLeft,
-                                child: Padding(
-                                  padding: const EdgeInsets.only(left: 11.0),
-                                  child: ElevatedButton(
-                                    child: const Text(
-                                      'Skip',
-                                      style: TextStyle(
-                                          fontSize: 18, color: Colors.black),
-                                    ),
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => GetStarted(),
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                ),
-                              )
-                            ],
+                            //   // borderRadius: BorderRadius.circular(20),
+                            //   child: Image.asset('assets/main/unlockgames_98.png'),
+                            // ),
                           ),
-                        ),
+                          Container(
+                            // color: Colors.green,
+                            padding: EdgeInsets.only(top: 20),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Container(
+                                  // color: Colors.blue,
+                                  padding: EdgeInsets.only(bottom: 20),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                        // width: 220,
+                                        // height: 220,
+
+                                        margin: const EdgeInsets.fromLTRB(
+                                            10, 10, 10, 10),
+                                        // color: Colors.purple,
+                                        // child: Image.asset('assets/default.png'),
+                                        child: content_Images[indexx] != ""
+                                            ? ClipRRect(
+                                                // borderRadius: BorderRadius.circular(20),
+                                                child: Image.asset(
+                                                  content_Images[indexx],
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(10),
+                                              )
+                                            : Container(),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  // color: Colors.purple,
+                                  padding: EdgeInsets.only(top: 20, bottom: 10),
+                                  // height: 20,
+                                  alignment: Alignment.center,
+                                  child: Container(
+                                    // color: Colors.red,
+                                    width: 105,
+                                    child: Row(
+                                      children: List.generate(3, (indexDots) {
+                                        return Container(
+                                          margin:
+                                              const EdgeInsets.only(left: 4),
+                                          height: 8,
+                                          width: indexx == indexDots ? 40 : 25,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(4),
+                                              color: indexx == indexDots
+                                                  ? Color(0xff344A61)
+                                                  : Colors.grey.shade400),
+                                        );
+                                      }),
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  alignment: Alignment.center,
+                                  // color: Colors.pink,
+                                  padding: EdgeInsets.only(top: 20),
+                                  child: Text(
+                                    topTexts[indexx],
+                                    style: TextStyle(
+                                        fontSize: 23,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                                Container(
+                                  // width: 300,
+                                  // color: Colors.pink,
+                                  margin: EdgeInsets.only(left: 15, right: 15),
+                                  height: 100,
+                                  // margin: const EdgeInsets.only(top: 10),
+                                  alignment: Alignment.center,
+
+                                  child: Text(
+                                    bodyTexts[indexx],
+                                    textAlign: TextAlign.center,
+                                    style: const TextStyle(
+                                      fontSize: 19.0,
+                                      color: Color(0xff808080),
+                                      // color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 40,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
-                      // Expanded(
-                      //   flex: 1,
-                      //   child: Container(
-                      //     alignment: Alignment.centerLeft,
-                      //     child: TextButton(
-                      //       child: const Text(
-                      //         'Skip',
-                      //         style: TextStyle(fontSize: 18, color: Colors.black),
-                      //       ),
-                      //       onPressed: () {},
-                      //     ),
-                      //   ),
-                      // )
-                    ],
+                    ),
+                  );
+                },
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Container(
+                    padding: EdgeInsets.only(bottom: 30, left: 20, right: 20),
+                    // alignment: Alignment.centerLeft,
+                    child: _currentPage == 2
+
+                        // FOR GET STARTED AND LOGIN
+                        // FOR GET STARTED AND LOGIN
+                        ? Container(
+                            height: 130,
+                            child: Column(
+                              children: [
+                                Container(
+                                  height: 50,
+                                  width: 250,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xff344A61),
+                                    borderRadius: BorderRadius.circular(23.0),
+                                    border: Border.all(
+                                      color: Color(0xff344A61),
+                                    ),
+                                  ),
+                                  child: SizedBox(
+                                    width: double.maxFinite, // <-- Your width
+                                    height: 55,
+                                    child: ElevatedButton(
+                                      child: const Text(
+                                        'Get Started',
+                                        style: TextStyle(
+                                            fontSize: 18, color: Colors.white),
+                                      ),
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                RegisterPage(),
+                                          ),
+                                        );
+                                      },
+                                      style: ElevatedButton.styleFrom(
+                                        primary: Colors.transparent,
+                                        shadowColor: Colors.transparent,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  padding: EdgeInsets.only(top: 10),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text('Already have an account ?'),
+                                      TextButton(
+                                        child: Text(
+                                          'Log In',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) => LoginPage(),
+                                            ),
+                                          );
+                                        },
+                                      )
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                          )
+
+                        // FOR SKIP AND NEXT
+                        // FOR SKIP AND NEXT
+                        : Container(
+                            height: 130,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Container(
+                                  height: 50,
+                                  width: 100,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xff344A61),
+                                    borderRadius: BorderRadius.circular(23.0),
+                                    border: Border.all(
+                                      color: Color(0xff344A61),
+                                    ),
+                                  ),
+                                  child: SizedBox(
+                                    width: double.maxFinite, // <-- Your width
+                                    height: 55,
+                                    child: ElevatedButton(
+                                      child: const Text(
+                                        'Skip',
+                                        style: TextStyle(
+                                            fontSize: 18, color: Colors.white),
+                                      ),
+                                      onPressed: () {
+                                        _controller.animateToPage(2,
+                                            duration:
+                                                Duration(milliseconds: 300),
+                                            curve: Curves.easeIn);
+                                      },
+                                      style: ElevatedButton.styleFrom(
+                                        primary: Colors.transparent,
+                                        shadowColor: Colors.transparent,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  height: 50,
+                                  width: 100,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(23.0),
+                                    border: Border.all(
+                                      color: Color(0xff344A61),
+                                    ),
+                                  ),
+                                  child: SizedBox(
+                                    width: double.maxFinite, // <-- Your width
+                                    height: 55,
+                                    child: ElevatedButton(
+                                      child: const Text(
+                                        'Next',
+                                        style: TextStyle(
+                                            fontSize: 18, color: Colors.black),
+                                      ),
+                                      onPressed: () {
+                                        _controller.animateToPage(
+                                            _currentPage + 1,
+                                            duration:
+                                                Duration(milliseconds: 300),
+                                            curve: Curves.easeIn);
+                                      },
+                                      style: ElevatedButton.styleFrom(
+                                        primary: Colors.transparent,
+                                        shadowColor: Colors.transparent,
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
                   ),
-                ),
-              );
-            },
+                ],
+              )
+            ],
           ),
         ),
       ),

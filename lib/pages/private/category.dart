@@ -1,0 +1,368 @@
+import 'package:flutter/material.dart';
+
+class Category extends StatefulWidget {
+  String category;
+  String contentPhoto;
+  String text;
+
+  Category(
+      {Key? key,
+      required this.category,
+      required this.contentPhoto,
+      required this.text})
+      : super(key: key);
+
+  @override
+  _CategoryState createState() => _CategoryState();
+}
+
+class _CategoryState extends State<Category> {
+  String myInitialHolder = 'Select Amount';
+
+  final List myItems = [
+    'Select Amount',
+    '₦ 350',
+    '₦ 500',
+    '₦ 750',
+    '₦ 1,000',
+    '₦ 10,000',
+  ]; // List of items to show in dropdownlist
+
+  // START OF STAKE DIALOG
+  // START OF STAKE DIALOG
+  openStakeDialog(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.0),
+          ),
+          child: Container(
+            height: 480,
+            child: Column(
+              children: [
+                Container(
+                  alignment: Alignment.centerLeft,
+                  margin: EdgeInsets.only(top: 10, bottom: 20, left: 10),
+                  // color: Colors.green,
+                  child: IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: Icon(Icons.close),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: 30, right: 30),
+                  height: 380,
+                  // color: Colors.blue,
+                  child: Column(
+                    children: [
+                      Card(
+                        elevation: 2,
+                        margin: EdgeInsets.only(bottom: 20, left: 5, right: 5),
+                        color: Color(0xffFEF1F1),
+                        child: Container(
+                          padding: EdgeInsets.all(25),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text('Cash Balance'),
+                              Text('₦ 12,000'),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Card(
+                        elevation: 2,
+                        margin: EdgeInsets.only(bottom: 20, left: 5, right: 5),
+                        color: Color(0xffFEF1F1),
+                        child: Container(
+                          color: Color(0xffFFFDED),
+                          padding: EdgeInsets.all(25),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text('Total Coins'),
+                              Text('₦ 12,000'),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 35,
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(
+                            top: 6, bottom: 6, left: 20, right: 20),
+                        margin: EdgeInsets.only(left: 5, right: 5),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          border: Border.all(color: Colors.black54),
+                        ),
+                        child: DropdownButtonHideUnderline(
+                          child: DropdownButton(
+                            value: myInitialHolder,
+                            isExpanded: true,
+                            onChanged: (dynamic value) {
+                              setState(() {
+                                myInitialHolder = value!;
+                              });
+                              // Close dialog and open again
+                              // Close dialog and open again
+                              Navigator.pop(context); // Close
+                              openStakeDialog(context); // Open
+                            },
+                            items: myItems.map((items) {
+                              return DropdownMenuItem(
+                                value: items,
+                                child: Text(items),
+                              );
+                            }).toList(),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Color(0xff344A61),
+                          borderRadius: BorderRadius.circular(10.0),
+                          border: Border.all(
+                            color: Color(0xff344A61),
+                          ),
+                        ),
+                        margin: EdgeInsets.all(5),
+                        child: SizedBox(
+                          height: 50,
+                          width: double.maxFinite,
+                          child: ElevatedButton(
+                            child: const Text(
+                              'Next',
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.white),
+                            ),
+                            onPressed: () {
+                              Navigator.pop(context); // Close old
+                              openStakeSummaryDialog(context); // open new
+                            },
+                            style: ElevatedButton.styleFrom(
+                              primary: Colors.transparent,
+                              shadowColor: Colors.transparent,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+  // END OF STAKE DIALOG
+  // END OF STAKE DIALOG
+
+  // START OF STAKE SUMMARY
+  // START OF STAKE SUMMARY
+  openStakeSummaryDialog(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.0),
+          ),
+          child: Container(
+            height: 480,
+            child: Column(
+              children: [
+                Container(
+                  alignment: Alignment.centerLeft,
+                  margin: EdgeInsets.only(top: 10, bottom: 20, left: 10),
+                  // color: Colors.green,
+                  child: IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                      openStakeDialog(context);
+                    },
+                    icon: Icon(Icons.arrow_back_ios),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: 30, right: 30),
+                  height: 380,
+                  // color: Colors.blue,
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Color(0xff344A61),
+                          borderRadius: BorderRadius.circular(10.0),
+                          border: Border.all(
+                            color: Color(0xff344A61),
+                          ),
+                        ),
+                        margin: EdgeInsets.all(5),
+                        child: SizedBox(
+                          height: 50,
+                          width: double.maxFinite,
+                          child: ElevatedButton(
+                            child: const Text(
+                              'Next',
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.white),
+                            ),
+                            onPressed: () {
+                              Navigator.pop(context); // Close old
+                              openStakeSummaryDialog(context); // open new
+                            },
+                            style: ElevatedButton.styleFrom(
+                              primary: Colors.transparent,
+                              shadowColor: Colors.transparent,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+  // END OF STAKE SUMMARY DIALOG
+  // END OF STAKE SUMMARY DIALOG
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        width: double.maxFinite, // maximum width
+        height: double.maxFinite, // maxium height
+        decoration: const BoxDecoration(
+          // in container if you want to show a background image you need box decoration
+          image: DecorationImage(
+              image: AssetImage('assets/landing_img/img2.png'),
+              fit: BoxFit.cover),
+        ),
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          appBar: AppBar(
+            foregroundColor: Colors.black,
+            backgroundColor: Colors.transparent, // 1
+            elevation: 0,
+            title: Align(
+              alignment: Alignment.centerLeft,
+              child: Text('Categories'),
+            ),
+            actions: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.menu,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                Container(
+                  height: 350,
+                  decoration: BoxDecoration(
+                    // in container if you want to show a background image you need box decoration
+                    image: DecorationImage(
+                        image: AssetImage(widget.contentPhoto),
+                        fit: BoxFit.cover),
+                  ),
+                ),
+                Container(
+                  color: Colors.grey,
+                  height: 190,
+                ),
+                Container(
+                  padding: EdgeInsets.only(top: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10.0),
+                          border: Border.all(
+                            color: Color(0xff344A61),
+                          ),
+                        ),
+                        margin: EdgeInsets.all(5),
+                        child: SizedBox(
+                          height: 50,
+                          width: 120,
+                          child: ElevatedButton(
+                            child: const Text(
+                              'Play Now',
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.black),
+                            ),
+                            onPressed: () {
+                              openStakeDialog(context);
+                            },
+                            style: ElevatedButton.styleFrom(
+                              primary: Colors.transparent,
+                              shadowColor: Colors.transparent,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Color(0xff344A61),
+                          borderRadius: BorderRadius.circular(10.0),
+                          border: Border.all(
+                            color: Color(0xff344A61),
+                          ),
+                        ),
+                        margin: EdgeInsets.all(5),
+                        child: SizedBox(
+                          height: 50,
+                          width: 120,
+                          child: ElevatedButton(
+                            child: const Text(
+                              'Rules',
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.white),
+                            ),
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              primary: Colors.transparent,
+                              shadowColor: Colors.transparent,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

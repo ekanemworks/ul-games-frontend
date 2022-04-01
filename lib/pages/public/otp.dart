@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:trivial_game/pages/public/login_page.dart';
-import 'package:trivial_game/pages/public/otp.dart';
 
-class ForgetpasswordPage extends StatefulWidget {
+class Otp extends StatefulWidget {
   @override
-  _ForgetpasswordPageState createState() => _ForgetpasswordPageState();
+  _OtpState createState() => _OtpState();
 }
 
-class _ForgetpasswordPageState extends State<ForgetpasswordPage> {
+class _OtpState extends State<Otp> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
@@ -63,25 +61,10 @@ class _ForgetpasswordPageState extends State<ForgetpasswordPage> {
                         style: TextStyle(fontSize: 18),
                       ),
                     ),
-                    //  decoration: BoxDecoration(
-                    //               gradient: LinearGradient(
-                    //                   colors: [Colors.pink, Colors.green],
-                    //                   begin: Alignment.topCenter,
-                    //                   end: Alignment.bottomCenter,
-                    //                 ),
-                    //               color: Colors.black,
-                    //               borderRadius: BorderRadius.circular(20.0),
-                    //             ),
                     Container(
                       // color: Colors.red,
                       height: 450,
                       decoration: BoxDecoration(
-                        // gradient: LinearGradient(
-                        //   colors: [Color(0xffFEEFA8), Color(0xffF3A477)],
-                        //   begin: Alignment.topCenter,
-                        //   end: Alignment.bottomCenter,
-                        // ),
-
                         color: Color(0xffEFB996),
                         borderRadius: BorderRadius.circular(20.0),
                       ),
@@ -91,15 +74,22 @@ class _ForgetpasswordPageState extends State<ForgetpasswordPage> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
+                            Container(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                'Enter the OTP sent to your device',
+                                style: TextStyle(
+                                    fontSize: 17, fontWeight: FontWeight.bold),
+                              ),
+                            ),
                             // phone number
                             Padding(
                               padding: const EdgeInsets.only(top: 23),
                               child: TextFormField(
                                 decoration: const InputDecoration(
-                                  labelText: 'Phone Number ',
+                                  labelText: 'OTP',
                                   fillColor: Colors.white,
                                   filled: true,
-                                  prefix: Text('+234'),
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.all(
                                       Radius.circular(23.0),
@@ -135,7 +125,7 @@ class _ForgetpasswordPageState extends State<ForgetpasswordPage> {
                                 height: 55,
                                 child: ElevatedButton(
                                   child: const Text(
-                                    'Reset',
+                                    'Confirm',
                                     style: TextStyle(
                                         fontSize: 18, color: Colors.white),
                                   ),

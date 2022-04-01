@@ -36,6 +36,7 @@ dependencies:
   dotted_border: ^2.0.0+2
   share_plus: ^3.0.4
   cached_network_image: ^3.1.0
+  carousel_slider: ^4.0.0
 
 dev_dependencies:
   flutter_test:
@@ -79,7 +80,7 @@ flutter:
     - assets/landing_/l2.png
     - assets/landing_/l3.png
     - assets/landing_/l4.png
-    #   - images/a_dot_burr.jpeg
+    #   - New Images
     - assets/landing_img/img1.png
     - assets/landing_img/img2.png
     - assets/landing_img/img3.png
@@ -87,12 +88,14 @@ flutter:
     - assets/landing_img/img5.png
     - assets/main/unlockgames_98.png
     - assets/main/unlockgames_180.png
-    #   - images/a_dot_ham.jpeg
+    #   Categories Images
     - assets/categories/entertainment.png
     - assets/categories/fashion.png
     - assets/categories/music.png
     - assets/categories/politics.png
     - assets/categories/sport.png
+    #   Slider Images
+    - assets/slider/slider1.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

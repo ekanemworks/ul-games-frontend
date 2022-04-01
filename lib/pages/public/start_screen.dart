@@ -60,8 +60,21 @@ class _StartScreenState extends State<StartScreen> {
       decoration: BoxDecoration(
         // in container if you want to show a background image you need box decoration
         image: DecorationImage(
-            image: AssetImage('assets/landing_img/img1.png'),
-            fit: BoxFit.cover),
+          image: AssetImage('assets/landing_img/img1.png'),
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: Align(
+        alignment: Alignment.bottomCenter,
+        child: Container(
+          margin: EdgeInsets.only(bottom: 30),
+          child: ElevatedButton(
+            child: Text('Restart'),
+            onPressed: () {
+              startTimer();
+            },
+          ),
+        ),
       ),
     );
   }
