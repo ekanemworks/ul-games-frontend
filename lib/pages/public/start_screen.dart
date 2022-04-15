@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:trivial_game/pages/public/landing.dart';
+import 'package:trivial_game/pages/public/onboarding.dart';
 
 class StartScreen extends StatefulWidget {
   @override
@@ -33,7 +33,7 @@ class _StartScreenState extends State<StartScreen> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => LandingPage(),
+              builder: (context) => OnboardingPage(),
             ),
           );
         } else {
@@ -56,25 +56,25 @@ class _StartScreenState extends State<StartScreen> {
   Widget build(BuildContext context) {
     return Container(
       width: double.maxFinite, // maximum width
-      height: double.maxFinite, // maxium height
+      height: double.maxFinite, // maximum height
       decoration: BoxDecoration(
         // in container if you want to show a background image you need box decoration
         image: DecorationImage(
-          image: AssetImage('assets/landing_img/img1.png'),
+          image: AssetImage('assets/landing_img/start_screen.png'),
           fit: BoxFit.cover,
         ),
       ),
       child: Align(
         alignment: Alignment.bottomCenter,
         child: Container(
-          margin: EdgeInsets.only(bottom: 30),
-          child: ElevatedButton(
-            child: Text('Restart'),
-            onPressed: () {
-              startTimer();
-            },
-          ),
-        ),
+            // margin: EdgeInsets.only(bottom: 30),
+            // child: ElevatedButton(
+            //   child: Text('Restart'),
+            //   onPressed: () {
+            //     startTimer();
+            //   },
+            // ),
+            ),
       ),
     );
   }

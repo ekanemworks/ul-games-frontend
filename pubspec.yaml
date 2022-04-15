@@ -81,13 +81,15 @@ flutter:
     - assets/landing_/l3.png
     - assets/landing_/l4.png
     #   - New Images
-    - assets/landing_img/img1.png
-    - assets/landing_img/img2.png
+    - assets/landing_img/start_screen.png
+    - assets/landing_img/default_bg.png
     - assets/landing_img/img3.png
     - assets/landing_img/img4.png
     - assets/landing_img/img5.png
     - assets/main/unlockgames_98.png
+    - assets/main/titleLogo.png
     - assets/main/unlockgames_180.png
+    - assets/main/unlockgames_remake.png
     #   Categories Images
     - assets/categories/entertainment.png
     - assets/categories/fashion.png

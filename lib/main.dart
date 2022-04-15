@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trivial_game/pages/public/landing.dart';
+import 'package:trivial_game/pages/public/onboarding.dart';
 import 'package:trivial_game/pages/public/start_screen.dart';
 
 void main() {
@@ -16,6 +16,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        // brightness: Brightness.dark,
+        // accentColor: Colors.white,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );

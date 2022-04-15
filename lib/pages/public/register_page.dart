@@ -3,6 +3,7 @@ import 'package:trivial_game/pages/private/dashboard.dart';
 import 'package:trivial_game/pages/public/login_page.dart';
 
 class RegisterPage extends StatefulWidget {
+  RegisterPage({Key? key}) : super(key: key);
   @override
   _RegisterPageState createState() => _RegisterPageState();
 }
@@ -13,6 +14,7 @@ class _RegisterPageState extends State<RegisterPage> {
   late String _phoneNumber;
   late String _password;
   bool _passwordVisibility = false;
+  bool showvalue = false;
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +25,11 @@ class _RegisterPageState extends State<RegisterPage> {
         decoration: const BoxDecoration(
           // in container if you want to show a background image you need box decoration
           image: DecorationImage(
-              image: AssetImage('assets/landing_img/img2.png'),
+              image: AssetImage('assets/landing_img/default_bg.png'),
               fit: BoxFit.cover),
         ),
         child: Scaffold(
+          backgroundColor: Colors.transparent,
           appBar: AppBar(
             foregroundColor: Colors.black,
             backgroundColor: Colors.transparent, // 1
@@ -36,15 +39,10 @@ class _RegisterPageState extends State<RegisterPage> {
             child: Center(
               child: Container(
                 // height: 820,
+
                 alignment: Alignment.center,
-                // color: Colors.grey,
-                // constraints: BoxConstraints(
-                //     maxWidth: MediaQuery.of(context).size.width - 45,
-                //     maxHeight: 640,),
-                // max
+
                 width: MediaQuery.of(context).size.width - 45,
-                // margin: const EdgeInsets.only(left: 40, right: 40),
-                // color: Colors.grey,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -54,9 +52,9 @@ class _RegisterPageState extends State<RegisterPage> {
                       child: Text(
                         'Create an Account',
                         style: TextStyle(
-                          fontSize: 29,
-                          fontWeight: FontWeight.bold,
-                        ),
+                            fontSize: 29,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
                       ),
                     ),
                     Container(
@@ -64,27 +62,13 @@ class _RegisterPageState extends State<RegisterPage> {
                       padding: EdgeInsets.only(bottom: 29),
                       child: Text(
                         'Fill in the details to create an account',
-                        style: TextStyle(fontSize: 18),
+                        style: TextStyle(fontSize: 18, color: Colors.white),
                       ),
                     ),
-                    //  decoration: BoxDecoration(
-                    //               gradient: LinearGradient(
-                    //                   colors: [Colors.pink, Colors.green],
-                    //                   begin: Alignment.topCenter,
-                    //                   end: Alignment.bottomCenter,
-                    //                 ),
-                    //               color: Colors.black,
-                    //               borderRadius: BorderRadius.circular(20.0),
-                    //             ),
                     Container(
                       // color: Colors.red,
                       decoration: BoxDecoration(
-                        // gradient: LinearGradient(
-                        //   colors: [Color(0xffFEEFA8), Color(0xffF3A477)],
-                        //   begin: Alignment.topCenter,
-                        //   end: Alignment.bottomCenter,
-                        // ),
-                        color: Color(0xffEFB996),
+                        color: Colors.white,
                         borderRadius: BorderRadius.circular(20.0),
                       ),
                       padding: EdgeInsets.only(right: 25, left: 25),
@@ -94,17 +78,12 @@ class _RegisterPageState extends State<RegisterPage> {
                           children: [
                             // Full name
                             Padding(
-                              padding: const EdgeInsets.only(top: 50),
+                              padding: const EdgeInsets.only(top: 40),
                               child: TextFormField(
                                 decoration: const InputDecoration(
                                   labelText: 'Full Name ',
                                   fillColor: Colors.white,
                                   filled: true,
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(23.0),
-                                    ),
-                                  ),
                                 ),
                                 validator: (value) {
                                   if (value!.isEmpty) {
@@ -125,17 +104,12 @@ class _RegisterPageState extends State<RegisterPage> {
 
                             // Email
                             Padding(
-                              padding: const EdgeInsets.only(top: 30),
+                              padding: const EdgeInsets.only(top: 15),
                               child: TextFormField(
                                 decoration: const InputDecoration(
                                   labelText: 'Email ',
                                   fillColor: Colors.white,
                                   filled: true,
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(23.0),
-                                    ),
-                                  ),
                                 ),
                                 validator: (value) {
                                   if (value!.isEmpty) {
@@ -156,18 +130,13 @@ class _RegisterPageState extends State<RegisterPage> {
 
                             // phone number
                             Padding(
-                              padding: const EdgeInsets.only(top: 23),
+                              padding: const EdgeInsets.only(top: 15),
                               child: TextFormField(
                                 decoration: const InputDecoration(
                                   labelText: 'Phone Number ',
                                   fillColor: Colors.white,
                                   filled: true,
                                   prefix: Text('+234'),
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(23.0),
-                                    ),
-                                  ),
                                 ),
                                 validator: (value) {
                                   if (value!.isEmpty) {
@@ -188,17 +157,12 @@ class _RegisterPageState extends State<RegisterPage> {
 
                             // confirm password
                             Padding(
-                              padding: const EdgeInsets.only(top: 23),
+                              padding: const EdgeInsets.only(top: 15),
                               child: TextFormField(
                                 decoration: InputDecoration(
-                                  labelText: 'Password',
+                                  labelText: 'Set Password',
                                   fillColor: Colors.white,
                                   filled: true,
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(23.0),
-                                    ),
-                                  ),
                                   suffixIcon: IconButton(
                                     icon: _passwordVisibility == false
                                         ? const Icon(Icons.visibility_off)
@@ -225,17 +189,12 @@ class _RegisterPageState extends State<RegisterPage> {
 
                             // confirm password
                             Padding(
-                              padding: const EdgeInsets.only(top: 23),
+                              padding: const EdgeInsets.only(top: 15),
                               child: TextFormField(
                                 decoration: InputDecoration(
                                   labelText: 'Confirm Password',
                                   fillColor: Colors.white,
                                   filled: true,
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(23.0),
-                                    ),
-                                  ),
                                   suffixIcon: IconButton(
                                     icon: _passwordVisibility == false
                                         ? const Icon(Icons.visibility_off)
@@ -260,18 +219,45 @@ class _RegisterPageState extends State<RegisterPage> {
                               ),
                             ),
 
-                            const SizedBox(height: 20),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(top: 15.0, bottom: 30),
+                              child: Container(
+                                child: Row(
+                                  children: [
+                                    Checkbox(
+                                      value: this.showvalue,
+                                      onChanged: (value) {
+                                        setState(() {
+                                          this.showvalue = value!;
+                                        });
+                                      },
+                                    ),
+                                    Text('I have read and accepted the terms')
+                                  ],
+                                ),
+                              ),
+                            ),
+
                             Container(
                               decoration: BoxDecoration(
-                                  color: Color(0xff394A5F),
-                                  borderRadius: BorderRadius.circular(23.0),
-                                  border: Border.all(color: Colors.black)),
+                                gradient: LinearGradient(
+                                  colors: [
+                                    Color(0xffEE5E04),
+                                    Color(0xff813404)
+                                  ],
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter,
+                                ),
+                                borderRadius: BorderRadius.circular(23.0),
+                                // border: Border.all(color: Colors.black),
+                              ),
                               child: SizedBox(
                                 width: double.maxFinite, // <-- Your width
                                 height: 55,
                                 child: ElevatedButton(
                                   child: const Text(
-                                    'Register',
+                                    'Create Account',
                                     style: TextStyle(
                                         fontSize: 18, color: Colors.white),
                                   ),
@@ -299,7 +285,8 @@ class _RegisterPageState extends State<RegisterPage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('Already have an account ?'),
+                          Text('Already have an account ?',
+                              style: TextStyle(color: Colors.white)),
                           TextButton(
                             child: Text(
                               'Log In',

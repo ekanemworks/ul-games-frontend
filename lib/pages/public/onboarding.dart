@@ -3,12 +3,12 @@ import 'package:trivial_game/pages/public/getstarted.dart';
 import 'package:trivial_game/pages/public/login_page.dart';
 import 'package:trivial_game/pages/public/register_page.dart';
 
-class LandingPage extends StatefulWidget {
+class OnboardingPage extends StatefulWidget {
   @override
-  _LandingPageState createState() => _LandingPageState();
+  _OnboardingPageState createState() => _OnboardingPageState();
 }
 
-class _LandingPageState extends State<LandingPage> {
+class _OnboardingPageState extends State<OnboardingPage> {
   List screen_images = [
     "assets/landing_/backgroundimg.png",
     "assets/landing_/backgroundimg.png",
@@ -57,7 +57,7 @@ class _LandingPageState extends State<LandingPage> {
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.deepOrange,
-        brightness: Brightness.light,
+        brightness: Brightness.dark,
         accentColor: Colors.deepOrange,
       ),
       home: Scaffold(
@@ -65,7 +65,7 @@ class _LandingPageState extends State<LandingPage> {
           decoration: BoxDecoration(
             // in container if you want to show a background image you need box decoration
             image: DecorationImage(
-                image: AssetImage('assets/landing_img/img2.png'),
+                image: AssetImage('assets/landing_img/default_bg.png'),
                 fit: BoxFit.cover),
           ),
           child: Stack(
@@ -157,7 +157,7 @@ class _LandingPageState extends State<LandingPage> {
                                               borderRadius:
                                                   BorderRadius.circular(4),
                                               color: indexx == indexDots
-                                                  ? Color(0xff344A61)
+                                                  ? Color(0xffBD4900)
                                                   : Colors.grey.shade400),
                                         );
                                       }),
@@ -223,7 +223,14 @@ class _LandingPageState extends State<LandingPage> {
                                   height: 50,
                                   width: 250,
                                   decoration: BoxDecoration(
-                                    color: Color(0xff344A61),
+                                    gradient: LinearGradient(
+                                      colors: [
+                                        Color(0xffEE5E04),
+                                        Color(0xff813404)
+                                      ],
+                                      begin: Alignment.topCenter,
+                                      end: Alignment.bottomCenter,
+                                    ),
                                     borderRadius: BorderRadius.circular(23.0),
                                     border: Border.all(
                                       color: Color(0xff344A61),
@@ -293,11 +300,18 @@ class _LandingPageState extends State<LandingPage> {
                                   height: 50,
                                   width: 100,
                                   decoration: BoxDecoration(
-                                    color: Color(0xff344A61),
-                                    borderRadius: BorderRadius.circular(23.0),
-                                    border: Border.all(
-                                      color: Color(0xff344A61),
+                                    gradient: LinearGradient(
+                                      colors: [
+                                        Color(0xffEE5E04),
+                                        Color(0xff813404)
+                                      ],
+                                      begin: Alignment.topCenter,
+                                      end: Alignment.bottomCenter,
                                     ),
+                                    borderRadius: BorderRadius.circular(23.0),
+                                    // border: Border.all(
+                                    //   color: Color(0xff344A61),
+                                    // ),
                                   ),
                                   child: SizedBox(
                                     width: double.maxFinite, // <-- Your width

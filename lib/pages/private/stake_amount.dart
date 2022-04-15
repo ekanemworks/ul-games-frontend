@@ -15,7 +15,7 @@ class _StakeAmountState extends State<StakeAmount> {
           decoration: const BoxDecoration(
             // in container if you want to show a background image you need box decoration
             image: DecorationImage(
-                image: AssetImage('assets/landing_img/img2.png'),
+                image: AssetImage('assets/landing_img/default_bg.png'),
                 fit: BoxFit.cover),
           ),
           child: SingleChildScrollView()),

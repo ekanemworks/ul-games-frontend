@@ -19,14 +19,28 @@ class _ForgetpasswordPageState extends State<ForgetpasswordPage> {
         decoration: const BoxDecoration(
           // in container if you want to show a background image you need box decoration
           image: DecorationImage(
-              image: AssetImage('assets/landing_img/img2.png'),
+              image: AssetImage('assets/landing_img/default_bg.png'),
               fit: BoxFit.cover),
         ),
         child: Scaffold(
+          backgroundColor: Colors.transparent,
           appBar: AppBar(
             foregroundColor: Colors.black,
             backgroundColor: Colors.transparent, // 1
             elevation: 0,
+            title: Align(
+              alignment: Alignment.centerLeft,
+              child: Container(
+                height: 60,
+                width: 80,
+                decoration: const BoxDecoration(
+                  // in container if you want to show a background image you need box decoration
+                  image: DecorationImage(
+                      image: AssetImage('assets/main/titleLogo.png'),
+                      fit: BoxFit.cover),
+                ),
+              ),
+            ),
           ),
           body: SingleChildScrollView(
             child: Center(
@@ -52,6 +66,7 @@ class _ForgetpasswordPageState extends State<ForgetpasswordPage> {
                         style: TextStyle(
                           fontSize: 29,
                           fontWeight: FontWeight.bold,
+                          color: Colors.white,
                         ),
                       ),
                     ),
@@ -60,29 +75,17 @@ class _ForgetpasswordPageState extends State<ForgetpasswordPage> {
                       padding: EdgeInsets.only(bottom: 29),
                       child: Text(
                         'Safely recover your password',
-                        style: TextStyle(fontSize: 18),
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
-                    //  decoration: BoxDecoration(
-                    //               gradient: LinearGradient(
-                    //                   colors: [Colors.pink, Colors.green],
-                    //                   begin: Alignment.topCenter,
-                    //                   end: Alignment.bottomCenter,
-                    //                 ),
-                    //               color: Colors.black,
-                    //               borderRadius: BorderRadius.circular(20.0),
-                    //             ),
                     Container(
                       // color: Colors.red,
                       height: 450,
                       decoration: BoxDecoration(
-                        // gradient: LinearGradient(
-                        //   colors: [Color(0xffFEEFA8), Color(0xffF3A477)],
-                        //   begin: Alignment.topCenter,
-                        //   end: Alignment.bottomCenter,
-                        // ),
-
-                        color: Color(0xffEFB996),
+                        color: Colors.white,
                         borderRadius: BorderRadius.circular(20.0),
                       ),
                       padding: EdgeInsets.only(right: 25, left: 25),
@@ -91,20 +94,25 @@ class _ForgetpasswordPageState extends State<ForgetpasswordPage> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
+                            Container(
+                              alignment: Alignment.center,
+                              padding: EdgeInsets.only(bottom: 29),
+                              child: Text(
+                                'Enter your phone number to reset',
+                                style: TextStyle(
+                                    fontSize: 17, fontWeight: FontWeight.bold),
+                              ),
+                            ),
                             // phone number
                             Padding(
-                              padding: const EdgeInsets.only(top: 23),
+                              padding:
+                                  const EdgeInsets.only(top: 23, bottom: 15),
                               child: TextFormField(
                                 decoration: const InputDecoration(
                                   labelText: 'Phone Number ',
                                   fillColor: Colors.white,
                                   filled: true,
                                   prefix: Text('+234'),
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(23.0),
-                                    ),
-                                  ),
                                 ),
                                 validator: (value) {
                                   if (value!.isEmpty) {
@@ -126,9 +134,15 @@ class _ForgetpasswordPageState extends State<ForgetpasswordPage> {
                             const SizedBox(height: 20),
                             Container(
                               decoration: BoxDecoration(
-                                color: Color(0xff394A5F),
+                                gradient: LinearGradient(
+                                  colors: [
+                                    Color(0xffEE5E04),
+                                    Color(0xff813404)
+                                  ],
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter,
+                                ),
                                 borderRadius: BorderRadius.circular(23.0),
-                                border: Border.all(color: Colors.black),
                               ),
                               child: SizedBox(
                                 width: double.maxFinite, // <-- Your width

@@ -39,6 +39,14 @@ class _CategoryState extends State<Category> {
             borderRadius: BorderRadius.circular(20.0),
           ),
           child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Color(0xff216DBD), Color(0xff216DBD)],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+              borderRadius: BorderRadius.circular(20.0),
+            ),
             height: 480,
             child: Column(
               children: [
@@ -50,7 +58,7 @@ class _CategoryState extends State<Category> {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    icon: Icon(Icons.close),
+                    icon: Icon(Icons.close, color: Colors.white),
                   ),
                 ),
                 Container(
@@ -59,39 +67,69 @@ class _CategoryState extends State<Category> {
                   // color: Colors.blue,
                   child: Column(
                     children: [
-                      Card(
-                        elevation: 2,
-                        margin: EdgeInsets.only(bottom: 20, left: 5, right: 5),
-                        color: Color(0xffFEF1F1),
-                        child: Container(
-                          padding: EdgeInsets.all(25),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text('Cash Balance'),
-                              Text('₦ 12,000'),
-                            ],
+                      Container(
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [Color(0xff428EDD), Color(0xff216DBC)],
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                          ),
+                          borderRadius: BorderRadius.circular(18.0),
+                          border: Border.all(
+                            width: 3.0,
+                            color: Color(0xffB5D4F6),
                           ),
                         ),
+                        padding: EdgeInsets.all(25),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Cash Balance',
+                              style:
+                                  TextStyle(fontSize: 17, color: Colors.white),
+                            ),
+                            Text(
+                              '₦ 12,000',
+                              style:
+                                  TextStyle(fontSize: 17, color: Colors.white),
+                            )
+                          ],
+                        ),
                       ),
-                      Card(
-                        elevation: 2,
-                        margin: EdgeInsets.only(bottom: 20, left: 5, right: 5),
-                        color: Color(0xffFEF1F1),
-                        child: Container(
-                          color: Color(0xffFFFDED),
-                          padding: EdgeInsets.all(25),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text('Total Coins'),
-                              Text('₦ 12,000'),
-                            ],
+                      const SizedBox(height: 20),
+                      Container(
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [Color(0xff428EDD), Color(0xff216DBC)],
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
                           ),
+                          borderRadius: BorderRadius.circular(18.0),
+                          border: Border.all(
+                            width: 3.0,
+                            color: Color(0xffEFB996),
+                          ),
+                        ),
+                        padding: EdgeInsets.all(25),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Total Coins',
+                              style:
+                                  TextStyle(fontSize: 17, color: Colors.white),
+                            ),
+                            Text(
+                              '₦ 12,000',
+                              style:
+                                  TextStyle(fontSize: 17, color: Colors.white),
+                            )
+                          ],
                         ),
                       ),
                       SizedBox(
-                        height: 35,
+                        height: 55,
                       ),
                       Container(
                         padding: EdgeInsets.only(
@@ -100,6 +138,7 @@ class _CategoryState extends State<Category> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
                           border: Border.all(color: Colors.black54),
+                          color: Colors.white,
                         ),
                         child: DropdownButtonHideUnderline(
                           child: DropdownButton(
@@ -128,10 +167,10 @@ class _CategoryState extends State<Category> {
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          color: Color(0xff344A61),
+                          color: Color(0xff184676),
                           borderRadius: BorderRadius.circular(10.0),
                           border: Border.all(
-                            color: Color(0xff344A61),
+                            color: Colors.white,
                           ),
                         ),
                         margin: EdgeInsets.all(5),
@@ -254,18 +293,20 @@ class _CategoryState extends State<Category> {
         decoration: const BoxDecoration(
           // in container if you want to show a background image you need box decoration
           image: DecorationImage(
-              image: AssetImage('assets/landing_img/img2.png'),
+              image: AssetImage('assets/landing_img/default_bg.png'),
               fit: BoxFit.cover),
         ),
         child: Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
-            foregroundColor: Colors.black,
+            foregroundColor: Colors.white,
             backgroundColor: Colors.transparent, // 1
             elevation: 0,
             title: Align(
               alignment: Alignment.centerLeft,
-              child: Text('Categories'),
+              child: Text(
+                'Categories',
+              ),
             ),
             actions: [
               Padding(

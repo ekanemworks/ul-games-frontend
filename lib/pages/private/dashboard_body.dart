@@ -11,24 +11,24 @@ class DashboardBody extends StatefulWidget {
 class _DashboardBodyState extends State<DashboardBody> {
   List _categories_colors_solid = [
     {
-      'border': Color(0xffF24E1E),
-      'body': Color(0xffFEF1F1),
+      'gradientTop': Color(0xffBC4A01),
+      'gradientBottom': Color(0xffBC4A01),
     },
     {
-      'border': Color(0xff006F2F),
-      'body': Color(0xffECF7EE),
+      'gradientTop': Color(0xff04AE23),
+      'gradientBottom': Color(0xff04AE23),
     },
     {
-      'border': Color(0xffC926B4),
-      'body': Color(0xffFDE0F5),
+      'gradientTop': Color(0xff216EBE),
+      'gradientBottom': Color(0xff1C5C9F),
     },
     {
-      'border': Color(0xffF2BC1A),
-      'body': Color(0xffFFFDED),
+      'gradientTop': Color(0xffFFB544),
+      'gradientBottom': Color(0xffFABB00),
     },
     {
-      'border': Color(0xff3A59DA),
-      'body': Color(0xffEFF1FC),
+      'gradientTop': Color(0xffF607B4),
+      'gradientBottom': Color(0xffB21988),
     },
   ];
 
@@ -114,27 +114,29 @@ class _DashboardBodyState extends State<DashboardBody> {
                   style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      fontFamily: 'Preahvihear'),
+                      fontFamily: 'Preahvihear',
+                      color: Colors.white),
                 ),
               ),
 
               // SLIDER
               Container(
-                color: Colors.grey.shade200,
+                // color: Colors.grey.shade200,
                 padding: EdgeInsets.only(),
                 height: 230,
                 child: CarouselSlider.builder(
                   itemCount: 3,
                   itemBuilder: (context, index, realIndex) {
                     return Container(
-                      height: 50,
+                      // height: 50,
                       // color: Colors.green,
-                      margin: EdgeInsets.symmetric(horizontal: 12),
-                      decoration: const BoxDecoration(
-                        // in container if you want to show a background image you need box decoration
-                        image: DecorationImage(
-                            image: AssetImage('assets/slider/slider1.png'),
-                            fit: BoxFit.cover),
+                      margin: EdgeInsets.symmetric(horizontal: 5),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(23.0),
+                        image: const DecorationImage(
+                          image: AssetImage('assets/slider/slider1.png'),
+                          fit: BoxFit.cover,
+                        ),
                       ),
                       // child: Text('$index'),
                     );
@@ -144,7 +146,7 @@ class _DashboardBodyState extends State<DashboardBody> {
                     autoPlay: true,
                     enlargeCenterPage: true,
                     enableInfiniteScroll: false,
-                    autoPlayInterval: Duration(seconds: 2),
+                    autoPlayInterval: Duration(seconds: 5),
                   ),
                 ),
               ),
@@ -168,7 +170,11 @@ class _DashboardBodyState extends State<DashboardBody> {
                   children: [
                     Text(
                       'Top Category',
-                      style: TextStyle(fontSize: 22),
+                      style: TextStyle(
+                        fontSize: 22,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     Container(
                       width: 100,
@@ -180,7 +186,7 @@ class _DashboardBodyState extends State<DashboardBody> {
                         // ),
                         borderRadius: BorderRadius.circular(10.0),
                         border: Border.all(
-                          color: Color(0xffEFB996),
+                          color: Color(0xffE7510E),
                         ),
                       ),
                       child: SizedBox(
@@ -189,7 +195,8 @@ class _DashboardBodyState extends State<DashboardBody> {
                         child: ElevatedButton(
                           child: const Text(
                             'View all',
-                            style: TextStyle(fontSize: 15, color: Colors.black),
+                            style: TextStyle(
+                                fontSize: 15, color: Color(0xffE7510E)),
                           ),
                           onPressed: () {
                             Navigator.push(
@@ -219,18 +226,22 @@ class _DashboardBodyState extends State<DashboardBody> {
                   children: _topCategories.map((e) {
                     return Container(
                       decoration: BoxDecoration(
-                        color:
+                        gradient: LinearGradient(
+                          colors: [
                             _categories_colors_solid[_topCategories.indexOf(e)]
-                                ['body'],
-                        borderRadius: BorderRadius.circular(1.0),
-                        border: Border.all(
-                          color: _categories_colors_solid[
-                              _topCategories.indexOf(e)]['border'],
+                                ['gradientTop'],
+                            _categories_colors_solid[_topCategories.indexOf(e)]
+                                ['gradientBottom']
+                          ],
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
                         ),
+                        borderRadius: BorderRadius.circular(10.0),
                       ),
                       // color: Colors.pink.shade100,
-                      padding: EdgeInsets.only(top: 7, right: 10, bottom: 7),
-                      margin: EdgeInsets.only(top: 20, bottom: 10),
+                      padding: EdgeInsets.only(top: 10, right: 10, bottom: 10),
+                      margin: EdgeInsets.only(
+                          top: 20, bottom: 10, left: 10, right: 10),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -255,9 +266,9 @@ class _DashboardBodyState extends State<DashboardBody> {
                               child: Text(
                                 e['categoryname'],
                                 style: TextStyle(
-                                  fontSize: 18.0,
-                                  // fontWeight: FontWeight.bold,
-                                ),
+                                    fontSize: 18.0,
+                                    // fontWeight: FontWeight.bold,
+                                    color: Colors.white),
                               ),
                             ),
                           ),

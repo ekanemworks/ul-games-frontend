@@ -23,7 +23,7 @@ class _GetStartedState extends State<GetStarted> {
           decoration: const BoxDecoration(
             // in container if you want to show a background image you need box decoration
             image: DecorationImage(
-                image: AssetImage('assets/landing_img/img2.png'),
+                image: AssetImage('assets/landing_img/default_bg.png'),
                 fit: BoxFit.cover),
           ),
           child: Center(
@@ -66,12 +66,12 @@ class _GetStartedState extends State<GetStarted> {
                             style: TextStyle(fontSize: 18, color: Colors.black),
                           ),
                           onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => RegisterPage(),
-                              ),
-                            );
+                            // Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(
+                            //     builder: (context) => RegisterPage(),
+                            //   ),
+                            // );
                           },
                           style: ElevatedButton.styleFrom(
                               primary: Colors.transparent,
@@ -99,12 +99,12 @@ class _GetStartedState extends State<GetStarted> {
                             style: TextStyle(fontSize: 18, color: Colors.black),
                           ),
                           onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => RegisterPage(),
-                              ),
-                            );
+                            // Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(
+                            //     builder: (context) => RegisterPage(),
+                            //   ),
+                            // );
                           },
                           style: ElevatedButton.styleFrom(
                             primary: Colors.transparent,
