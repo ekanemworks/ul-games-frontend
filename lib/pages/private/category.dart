@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trivial_game/pages/private/paid_game/game_trigger_countdown.dart';
 
 class Category extends StatefulWidget {
   String category;
@@ -218,36 +219,149 @@ class _CategoryState extends State<Category> {
             borderRadius: BorderRadius.circular(20.0),
           ),
           child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Color(0xff216DBD), Color(0xff216DBD)],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+              borderRadius: BorderRadius.circular(20.0),
+            ),
             height: 480,
             child: Column(
               children: [
                 Container(
                   alignment: Alignment.centerLeft,
-                  margin: EdgeInsets.only(top: 10, bottom: 20, left: 10),
+                  margin: EdgeInsets.only(top: 10, bottom: 10, left: 10),
                   // color: Colors.green,
-                  child: IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                      openStakeDialog(context);
-                    },
-                    icon: Icon(Icons.arrow_back_ios),
+                  child: Row(
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                          openStakeDialog(context);
+                        },
+                        icon: Icon(
+                          Icons.arrow_back_ios,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text(
+                        'Back',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      )
+                    ],
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(left: 30, right: 30),
+                  margin: EdgeInsets.only(left: 20, right: 20),
                   height: 380,
-                  // color: Colors.blue,
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
+                      Container(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'LifeLine',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              fontSize: 20),
+                        ),
+                      ),
+                      Container(
+                        child: Row(
+                          children: [
+                            Container(
+                              height: 60,
+                              width: 80,
+                              decoration: const BoxDecoration(
+                                // in container if you want to show a background image you need box decoration
+                                image: DecorationImage(
+                                    image: AssetImage(
+                                        'assets/lifeline/lifeline1.png'),
+                                    fit: BoxFit.cover),
+                              ),
+                            ),
+                            Expanded(
+                                child: Padding(
+                              padding: const EdgeInsets.only(left: 8.0),
+                              child: Text(
+                                'This lifeline removes two incorrect answers from the options.',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ))
+                          ],
+                        ),
+                      ),
+                      Container(
+                        child: Row(
+                          children: [
+                            Container(
+                              height: 60,
+                              width: 80,
+                              decoration: const BoxDecoration(
+                                // in container if you want to show a background image you need box decoration
+                                image: DecorationImage(
+                                    image: AssetImage(
+                                        'assets/lifeline/lifeline2.png'),
+                                    fit: BoxFit.cover),
+                              ),
+                            ),
+                            Expanded(
+                                child: Padding(
+                              padding: const EdgeInsets.only(left: 8.0),
+                              child: Text(
+                                'This lifeline deletes an incorrect answer from the options.',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ))
+                          ],
+                        ),
+                      ),
+                      Container(
+                        child: Row(
+                          children: [
+                            Container(
+                              height: 60,
+                              width: 80,
+                              decoration: const BoxDecoration(
+                                // in container if you want to show a background image you need box decoration
+                                image: DecorationImage(
+                                    image: AssetImage(
+                                        'assets/lifeline/lifeline3.png'),
+                                    fit: BoxFit.cover),
+                              ),
+                            ),
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 8.0),
+                                child: Text(
+                                  'This lifeline selects the correct answer from the options.',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
                       SizedBox(
                         height: 20,
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          color: Color(0xff344A61),
+                          color: Color(0xff184676),
                           borderRadius: BorderRadius.circular(10.0),
                           border: Border.all(
-                            color: Color(0xff344A61),
+                            color: Colors.white,
                           ),
                         ),
                         margin: EdgeInsets.all(5),
@@ -256,13 +370,18 @@ class _CategoryState extends State<Category> {
                           width: double.maxFinite,
                           child: ElevatedButton(
                             child: const Text(
-                              'Next',
+                              'Start Game',
                               style:
                                   TextStyle(fontSize: 18, color: Colors.white),
                             ),
                             onPressed: () {
                               Navigator.pop(context); // Close old
-                              openStakeSummaryDialog(context); // open new
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => GameTriggerCountDown(),
+                                ),
+                              );
                             },
                             style: ElevatedButton.styleFrom(
                               primary: Colors.transparent,
@@ -270,7 +389,7 @@ class _CategoryState extends State<Category> {
                             ),
                           ),
                         ),
-                      ),
+                      )
                     ],
                   ),
                 ),

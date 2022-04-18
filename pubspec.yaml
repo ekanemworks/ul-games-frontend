@@ -98,6 +98,10 @@ flutter:
     - assets/categories/sport.png
     #   Slider Images
     - assets/slider/slider1.png
+    #   Life Line Images
+    - assets/lifeline/lifeline1.png
+    - assets/lifeline/lifeline2.png
+    - assets/lifeline/lifeline3.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
