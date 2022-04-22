@@ -17,8 +17,9 @@ class _GameResultWonState extends State<GameResultWon> {
           decoration: const BoxDecoration(
             // in container if you want to show a background image you need box decoration
             image: DecorationImage(
-                image: AssetImage('assets/main/titleLogo.png'),
-                fit: BoxFit.cover),
+              image: AssetImage('assets/main/titleLogo.png'),
+              fit: BoxFit.cover,
+            ),
           ),
         ),
         // CONGRATS IMAGE
@@ -26,13 +27,59 @@ class _GameResultWonState extends State<GameResultWon> {
           child: Container(
             // height: 200,
             // color: Colors.pink,
+
+            width: double.maxFinite,
             margin: EdgeInsets.only(top: 20),
             decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(30.0),
+              color: Color(0xff02264B),
+              borderRadius: BorderRadius.circular(40.0),
               border: Border.all(
                 color: Color(0xffB6D5F7),
-                width: 7,
+                width: 4,
+              ),
+              image: DecorationImage(
+                image: AssetImage('assets/gameimages/congratulations.png'),
+                fit: BoxFit.cover,
+              ),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.only(top: 78.0),
+              child: Column(
+                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Congratulations',
+                    style: TextStyle(
+                      fontSize: 30,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    'Steve',
+                    style: TextStyle(
+                      fontSize: 30,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Text(
+                    'You Won',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Text(
+                    'Claim your reward',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
               ),
             ),
           ),

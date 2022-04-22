@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trivial_game/pages/custom_layout/menu_icon.dart';
 import 'package:trivial_game/pages/private/category.dart';
 
 class Categories extends StatefulWidget {
@@ -121,16 +122,7 @@ class _CategoriesState extends State<Categories> {
               ),
             ),
             actions: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.menu,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
+              MenuIcon(),
             ],
           ),
           body: SingleChildScrollView(

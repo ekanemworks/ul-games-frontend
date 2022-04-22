@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trivial_game/pages/custom_layout/menu_icon.dart';
 import 'package:trivial_game/pages/private/paid_game/game_trigger_countdown.dart';
 
 class Category extends StatefulWidget {
@@ -428,16 +429,7 @@ class _CategoryState extends State<Category> {
               ),
             ),
             actions: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.menu,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
+              MenuIcon(),
             ],
           ),
           body: SingleChildScrollView(

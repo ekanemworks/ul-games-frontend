@@ -65,14 +65,18 @@ class _GamePagePaidState extends State<GamePagePaid> {
               Container(
                 width: double.maxFinite,
                 margin: EdgeInsets.only(top: 20),
-                height: 230,
+                height: 240,
                 child: Stack(
                   children: [
                     Container(
                       height: 200,
                       // color: Colors.pink,
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        gradient: LinearGradient(
+                          colors: [Color(0xff206AB8), Color(0xff2D79C8)],
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                        ),
                         borderRadius: BorderRadius.circular(20.0),
                         border: Border.all(
                           color: Color(0xffB6D5F7),
@@ -82,9 +86,11 @@ class _GamePagePaidState extends State<GamePagePaid> {
                     ),
                     Positioned(
                       bottom: 0.0,
-                      // right: 5.0,
-                      child: Container(
-                        height: 70,
+                      child:
+                          // CONTAINER HOLDING THE ROW OF THE LIFELINE
+                          // CONTAINER HOLDING THE ROW OF THE LIFELINE
+                          Container(
+                        height: 100,
                         width: MediaQuery.of(context).size.width - 40,
                         // color: Colors.blue,
                         child: Row(
@@ -92,26 +98,56 @@ class _GamePagePaidState extends State<GamePagePaid> {
                           children: [
                             Container(
                               height: 100,
-                              width: 100,
+                              width: 80,
                               decoration: BoxDecoration(
-                                color: Colors.green,
+                                color: Colors.white,
+                                border: Border.all(
+                                  color: Color(0xff1971D2),
+                                  width: 3,
+                                ),
                                 shape: BoxShape.circle,
+                              ),
+                              child: Center(
+                                child: Text(
+                                  '50/50',
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              height: 120,
+                              width: 80,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                border: Border.all(
+                                  color: Color(0xff1971D2),
+                                  width: 3,
+                                ),
+                                shape: BoxShape.circle,
+                              ),
+                              child: Center(
+                                child: Text(
+                                  '-1 Option',
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
                               ),
                             ),
                             Container(
                               height: 100,
-                              width: 100,
+                              width: 80,
                               decoration: BoxDecoration(
-                                color: Colors.green,
+                                color: Colors.white,
+                                border: Border.all(
+                                  color: Color(0xff1971D2),
+                                  width: 3,
+                                ),
                                 shape: BoxShape.circle,
                               ),
-                            ),
-                            Container(
-                              height: 100,
-                              width: 100,
-                              decoration: BoxDecoration(
-                                color: Colors.green,
-                                shape: BoxShape.circle,
+                              child: Center(
+                                child: Text(
+                                  'Bonus',
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
                               ),
                             ),
                           ],
@@ -154,19 +190,103 @@ class _GamePagePaidState extends State<GamePagePaid> {
                   children: [
                     Container(
                       height: 70,
-                      color: Colors.blue,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30.0),
+                        color: Colors.white,
+                      ),
+                      child: Row(
+                        children: [
+                          Radio(
+                            value: 'a',
+                            groupValue: 'groupValue',
+                            onChanged: (value) {
+                              print('ssasa');
+                            },
+                          ),
+                          Text(
+                            'Mission Impossible',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                     Container(
                       height: 70,
-                      color: Colors.blue,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30.0),
+                        color: Colors.white,
+                      ),
+                      child: Row(
+                        children: [
+                          Radio(
+                            value: 'a',
+                            groupValue: 'groupValue',
+                            onChanged: (value) {
+                              print('ssasa');
+                            },
+                          ),
+                          Text(
+                            'Justice League',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                     Container(
                       height: 70,
-                      color: Colors.blue,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30.0),
+                        color: Colors.white,
+                      ),
+                      child: Row(
+                        children: [
+                          Radio(
+                            value: 'a',
+                            groupValue: 'groupValue',
+                            onChanged: (value) {
+                              print('ssasa');
+                            },
+                          ),
+                          Text(
+                            'Batman',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                     Container(
                       height: 70,
-                      color: Colors.blue,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30.0),
+                        color: Colors.white,
+                      ),
+                      child: Row(
+                        children: [
+                          Radio(
+                            value: 'a',
+                            groupValue: 'groupValue',
+                            onChanged: (value) {
+                              print('ssasa');
+                            },
+                          ),
+                          Text(
+                            'Titanic',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ],
                 ),

@@ -19,7 +19,7 @@ class _GameTriggerCountDownState extends State<GameTriggerCountDown> {
   }
 
   void startTimer() {
-    const oneSec = const Duration(milliseconds: 150);
+    const oneSec = const Duration(milliseconds: 1100);
     _timer = new Timer.periodic(
       oneSec,
       (Timer timer) {

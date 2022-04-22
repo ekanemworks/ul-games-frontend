@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:trivial_game/pages/custom_layout/menu_icon.dart';
 import 'package:trivial_game/pages/private/categories.dart';
 import 'package:trivial_game/pages/private/category.dart';
 
@@ -70,7 +71,7 @@ class _DashboardBodyState extends State<DashboardBody> {
     return Scaffold(
       backgroundColor: Colors.transparent,
       appBar: AppBar(
-        foregroundColor: Colors.black,
+        foregroundColor: Colors.white,
         backgroundColor: Colors.transparent, // 1
         elevation: 0,
         title: Align(
@@ -81,22 +82,13 @@ class _DashboardBodyState extends State<DashboardBody> {
             decoration: const BoxDecoration(
               // in container if you want to show a background image you need box decoration
               image: DecorationImage(
-                  image: AssetImage('assets/main/unlockgames_98.png'),
+                  image: AssetImage('assets/main/titleLogo.png'),
                   fit: BoxFit.cover),
             ),
           ),
         ),
         actions: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.menu,
-                color: Colors.black,
-              ),
-            ),
-          ),
+          MenuIcon(),
         ],
       ),
       body: SingleChildScrollView(

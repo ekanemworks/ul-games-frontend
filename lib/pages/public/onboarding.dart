@@ -94,8 +94,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
                             decoration: BoxDecoration(
                               // in container if you want to show a background image you need box decoration
                               image: DecorationImage(
-                                  image: AssetImage(
-                                      'assets/main/unlockgames_98.png'),
+                                  image:
+                                      AssetImage('assets/main/titleLogo.png'),
                                   fit: BoxFit.cover),
                             ),
                             // ClipRRect(
@@ -187,8 +187,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
                                     bodyTexts[indexx],
                                     textAlign: TextAlign.center,
                                     style: const TextStyle(
-                                      fontSize: 19.0,
-                                      color: Color(0xff808080),
+                                      fontSize: 20.0,
+                                      color: Colors.white60,
                                       // color: Colors.white,
                                     ),
                                   ),
