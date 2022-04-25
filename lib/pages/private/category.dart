@@ -20,14 +20,18 @@ class Category extends StatefulWidget {
 
 class _CategoryState extends State<Category> {
   String myInitialHolder = 'Select Amount';
+  double _potentialWin = 0.0;
+  double _stakeMultiple = 1.2;
+  RegExp reg = RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))');
+  String Function(Match) mathFunc = (Match match) => '${match[1]},';
 
   final List myItems = [
     'Select Amount',
-    '₦ 350',
-    '₦ 500',
-    '₦ 750',
-    '₦ 1,000',
-    '₦ 10,000',
+    '350',
+    '500',
+    '750',
+    '1000',
+    '10000',
   ]; // List of items to show in dropdownlist
 
   // START OF STAKE DIALOG
@@ -49,7 +53,7 @@ class _CategoryState extends State<Category> {
               ),
               borderRadius: BorderRadius.circular(20.0),
             ),
-            height: 480,
+            height: 510,
             child: Column(
               children: [
                 Container(
@@ -65,7 +69,7 @@ class _CategoryState extends State<Category> {
                 ),
                 Container(
                   margin: EdgeInsets.only(left: 30, right: 30),
-                  height: 380,
+                  height: 430,
                   // color: Colors.blue,
                   child: Column(
                     children: [
@@ -123,7 +127,7 @@ class _CategoryState extends State<Category> {
                                   TextStyle(fontSize: 17, color: Colors.white),
                             ),
                             Text(
-                              '₦ 12,000',
+                              '550',
                               style:
                                   TextStyle(fontSize: 17, color: Colors.white),
                             )
@@ -149,6 +153,13 @@ class _CategoryState extends State<Category> {
                             onChanged: (dynamic value) {
                               setState(() {
                                 myInitialHolder = value!;
+                                if (myInitialHolder != 'Select Amount') {
+                                  _potentialWin =
+                                      double.parse(myInitialHolder) *
+                                          _stakeMultiple;
+                                } else {
+                                  _potentialWin = 0.0;
+                                }
                               });
                               // Close dialog and open again
                               // Close dialog and open again
@@ -158,12 +169,32 @@ class _CategoryState extends State<Category> {
                             items: myItems.map((items) {
                               return DropdownMenuItem(
                                 value: items,
-                                child: Text(items),
+                                child: items == 'Select Amount'
+                                    ? Text(items)
+                                    : Text("₦ " +
+                                        items.replaceAllMapped(
+                                            RegExp(
+                                                r'(\d{1,3})(?=(\d{3})+(?!\d))'),
+                                            (Match m) => '${m[1]},')),
                               );
                             }).toList(),
                           ),
                         ),
                       ),
+                      _potentialWin == 0.0
+                          ? Container()
+                          : Container(
+                              margin: EdgeInsets.only(top: 15),
+                              child: Text(
+                                'Potential Win:  ₦' +
+                                    _potentialWin.toString().replaceAllMapped(
+                                        RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'),
+                                        (Match m) => '${m[1]},'),
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
                       SizedBox(
                         height: 20,
                       ),
