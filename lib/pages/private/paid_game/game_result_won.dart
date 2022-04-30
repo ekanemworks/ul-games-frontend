@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trivial_game/pages/private/paid_game/game_redeem_reward.dart';
 
 class GameResultWon extends StatefulWidget {
   @override
@@ -114,7 +115,12 @@ class _GameResultWonState extends State<GameResultWon> {
                 style: TextStyle(fontSize: 18, color: Colors.black),
               ),
               onPressed: () {
-                // openStakeDialog(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => RedeemReward(),
+                  ),
+                );
               },
               style: ElevatedButton.styleFrom(
                 primary: Colors.transparent,

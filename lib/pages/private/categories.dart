@@ -201,14 +201,6 @@ class _CategoriesState extends State<Categories> {
                                 style: TextStyle(
                                     fontSize: 16, color: Colors.black87),
                               ),
-                              style: ButtonStyle(
-                                shape: MaterialStateProperty.all<
-                                    RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                ),
-                              ),
                             ),
                           )
                         ],

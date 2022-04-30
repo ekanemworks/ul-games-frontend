@@ -88,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                         //   end: Alignment.bottomCenter,
                         // ),
 
-                        color: Colors.white,
+                        // color: Colors.white,
                         borderRadius: BorderRadius.circular(20.0),
                       ),
                       padding: EdgeInsets.only(right: 25, left: 25),
@@ -103,7 +103,7 @@ class _LoginPageState extends State<LoginPage> {
                               child: TextFormField(
                                 decoration: const InputDecoration(
                                   labelText: 'Phone Number ',
-                                  fillColor: Colors.white,
+                                  // fillColor: Colors.white,
                                   filled: true,
                                   prefix: Text('+234'),
                                 ),
@@ -130,7 +130,7 @@ class _LoginPageState extends State<LoginPage> {
                               child: TextFormField(
                                 decoration: InputDecoration(
                                   labelText: 'Password',
-                                  fillColor: Colors.white,
+                                  // fillColor: Colors.white,
                                   filled: true,
                                   suffixIcon: IconButton(
                                     icon: _passwordVisibility == false
@@ -161,7 +161,7 @@ class _LoginPageState extends State<LoginPage> {
                                 child: Text(
                                   'Forgot Password?',
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: Colors.white,
                                     letterSpacing: 0.8,
                                   ),
                                 ),

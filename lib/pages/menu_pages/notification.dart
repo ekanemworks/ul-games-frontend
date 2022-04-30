@@ -6,6 +6,8 @@ class NotificationScreen extends StatefulWidget {
 }
 
 class _NotificationScreenState extends State<NotificationScreen> {
+  bool _notificationList = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,6 +32,21 @@ class _NotificationScreenState extends State<NotificationScreen> {
                 'Notification',
               ),
             ),
+          ),
+          body: Container(
+            child: _notificationList == false
+                ? Center(
+                    child: Container(
+                      height: 200,
+                      child: Column(
+                        children: [
+                          Icon(Icons.notifications_off, size: 60),
+                          Text('You have no new notification')
+                        ],
+                      ),
+                    ),
+                  )
+                : Container(),
           ),
         ),
       ),

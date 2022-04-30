@@ -68,7 +68,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     Container(
                       // color: Colors.red,
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        // color: Colors.white,
                         borderRadius: BorderRadius.circular(20.0),
                       ),
                       padding: EdgeInsets.only(right: 25, left: 25),
@@ -82,7 +82,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               child: TextFormField(
                                 decoration: const InputDecoration(
                                   labelText: 'Full Name ',
-                                  fillColor: Colors.white,
+                                  // fillColor: Colors.white,
                                   filled: true,
                                 ),
                                 validator: (value) {
@@ -108,7 +108,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               child: TextFormField(
                                 decoration: const InputDecoration(
                                   labelText: 'Email ',
-                                  fillColor: Colors.white,
+                                  // fillColor: Colors.white,
                                   filled: true,
                                 ),
                                 validator: (value) {
@@ -134,7 +134,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               child: TextFormField(
                                 decoration: const InputDecoration(
                                   labelText: 'Phone Number ',
-                                  fillColor: Colors.white,
+                                  // fillColor: Colors.white,
                                   filled: true,
                                   prefix: Text('+234'),
                                 ),
@@ -161,7 +161,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               child: TextFormField(
                                 decoration: InputDecoration(
                                   labelText: 'Set Password',
-                                  fillColor: Colors.white,
+                                  // fillColor: Colors.white,
                                   filled: true,
                                   suffixIcon: IconButton(
                                     icon: _passwordVisibility == false
@@ -193,7 +193,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               child: TextFormField(
                                 decoration: InputDecoration(
                                   labelText: 'Confirm Password',
-                                  fillColor: Colors.white,
+                                  // fillColor: Colors.white,
                                   filled: true,
                                   suffixIcon: IconButton(
                                     icon: _passwordVisibility == false

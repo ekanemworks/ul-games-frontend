@@ -19,14 +19,14 @@ class Category extends StatefulWidget {
 }
 
 class _CategoryState extends State<Category> {
-  String myInitialHolder = 'Select Amount';
+  String myInitialHolder = 'Select Play Amount';
   double _potentialWin = 0.0;
   double _stakeMultiple = 1.2;
   RegExp reg = RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))');
   String Function(Match) mathFunc = (Match match) => '${match[1]},';
 
   final List myItems = [
-    'Select Amount',
+    'Select Play Amount',
     '350',
     '500',
     '750',
@@ -144,7 +144,7 @@ class _CategoryState extends State<Category> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
                           border: Border.all(color: Colors.black54),
-                          color: Colors.white,
+                          // color: Colors.black87,
                         ),
                         child: DropdownButtonHideUnderline(
                           child: DropdownButton(
@@ -153,7 +153,7 @@ class _CategoryState extends State<Category> {
                             onChanged: (dynamic value) {
                               setState(() {
                                 myInitialHolder = value!;
-                                if (myInitialHolder != 'Select Amount') {
+                                if (myInitialHolder != 'Select Play Amount') {
                                   _potentialWin =
                                       double.parse(myInitialHolder) *
                                           _stakeMultiple;
@@ -169,7 +169,7 @@ class _CategoryState extends State<Category> {
                             items: myItems.map((items) {
                               return DropdownMenuItem(
                                 value: items,
-                                child: items == 'Select Amount'
+                                child: items == 'Select Play Amount'
                                     ? Text(items)
                                     : Text("₦ " +
                                         items.replaceAllMapped(
@@ -456,7 +456,7 @@ class _CategoryState extends State<Category> {
             title: Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                'Categories',
+                widget.category,
               ),
             ),
             actions: [

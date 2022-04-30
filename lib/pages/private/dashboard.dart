@@ -13,6 +13,11 @@ class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        brightness: Brightness.dark,
+        accentColor: Colors.white,
+      ),
       home: Scaffold(
         body: Container(
           width: double.maxFinite, // maximum width
