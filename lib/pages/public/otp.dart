@@ -17,7 +17,7 @@ class _OtpState extends State<Otp> {
         decoration: const BoxDecoration(
           // in container if you want to show a background image you need box decoration
           image: DecorationImage(
-              image: AssetImage('assets/landing_img/default_bg.png'),
+              image: AssetImage('assets/landing_img/default_bg3.png'),
               fit: BoxFit.cover),
         ),
         child: Scaffold(
