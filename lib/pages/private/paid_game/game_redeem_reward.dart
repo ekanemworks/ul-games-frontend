@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trivial_game/pages/menu_pages/wallet_screen.dart';
+import 'package:trivial_game/pages/menu_pages/wallet/wallet_screen.dart';
 import 'package:trivial_game/pages/private/dashboard.dart';
 import 'package:trivial_game/pages/private/dashboard_body.dart';
 

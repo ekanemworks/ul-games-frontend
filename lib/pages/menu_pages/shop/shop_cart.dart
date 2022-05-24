@@ -12,6 +12,7 @@ class _ShopCartState extends State<ShopCart> {
     '',
     '',
     '',
+    '',
   ];
 
   @override
@@ -138,7 +139,7 @@ class _ShopCartState extends State<ShopCart> {
                 Expanded(
                   flex: 1,
                   child: Container(
-                    color: Color(0xffE4E4E7),
+                    color: Color(0xff021B34),
                     padding: EdgeInsets.all(20),
                     child: Column(
                       children: [
@@ -147,13 +148,11 @@ class _ShopCartState extends State<ShopCart> {
                           children: [
                             Text(
                               'Sub-total:',
-                              style:
-                                  TextStyle(fontSize: 20, color: Colors.black),
+                              style: TextStyle(fontSize: 20),
                             ),
                             Text(
                               '20 points',
-                              style:
-                                  TextStyle(fontSize: 20, color: Colors.black),
+                              style: TextStyle(fontSize: 20),
                             ),
                           ],
                         ),
@@ -171,7 +170,7 @@ class _ShopCartState extends State<ShopCart> {
                             // width: ,
                             decoration: BoxDecoration(
                               color: Color(0xff184676),
-                              borderRadius: BorderRadius.circular(23.0),
+                              borderRadius: BorderRadius.circular(7.0),
                             ),
                             child: SizedBox(
                               width: double.maxFinite, // <-- Your width

@@ -113,7 +113,7 @@ class _ShopProductDetailsState extends State<ShopProductDetails> {
                         // width: ,
                         decoration: BoxDecoration(
                           color: Color(0xff184676),
-                          borderRadius: BorderRadius.circular(23.0),
+                          borderRadius: BorderRadius.circular(7.0),
                           border: Border.all(color: Colors.grey),
                         ),
                         child: SizedBox(

@@ -29,6 +29,46 @@ class _CategoriesState extends State<Categories> {
       'gradientTop': Color(0xffF607B4),
       'gradientBottom': Color(0xffB21988),
     },
+    {
+      'gradientTop': Color(0xffBC4A01),
+      'gradientBottom': Color(0xffBC4A01),
+    },
+    {
+      'gradientTop': Color(0xff04AE23),
+      'gradientBottom': Color(0xff04AE23),
+    },
+    {
+      'gradientTop': Color(0xff216EBE),
+      'gradientBottom': Color(0xff1C5C9F),
+    },
+    {
+      'gradientTop': Color(0xffFFB544),
+      'gradientBottom': Color(0xffFABB00),
+    },
+    {
+      'gradientTop': Color(0xffF607B4),
+      'gradientBottom': Color(0xffB21988),
+    },
+    {
+      'gradientTop': Color(0xffBC4A01),
+      'gradientBottom': Color(0xffBC4A01),
+    },
+    {
+      'gradientTop': Color(0xff04AE23),
+      'gradientBottom': Color(0xff04AE23),
+    },
+    {
+      'gradientTop': Color(0xff216EBE),
+      'gradientBottom': Color(0xff1C5C9F),
+    },
+    {
+      'gradientTop': Color(0xffFFB544),
+      'gradientBottom': Color(0xffFABB00),
+    },
+    {
+      'gradientTop': Color(0xffF607B4),
+      'gradientBottom': Color(0xffB21988),
+    },
   ];
 
   List _categories_colors_gradient = [
@@ -89,6 +129,30 @@ class _CategoriesState extends State<Categories> {
     },
     {
       "id": "5",
+      "displaypicture": "assets/categories/music.png",
+      "categoryname": "Music",
+      "bgcolor": "FACFCF",
+      "text":
+          "{'quote':'Fashion is the armor to survive the reality of everyday life.','author':'Bill Cunningham'}"
+    },
+    {
+      "id": "4",
+      "displaypicture": "assets/categories/entertainment.png",
+      "categoryname": "Entertainment",
+      "bgcolor": "FACFCF",
+      "text":
+          "{'quote':'Fashion is the armor to survive the reality of everyday life.','author':'Bill Cunningham'}"
+    },
+    {
+      "id": "5",
+      "displaypicture": "assets/categories/music.png",
+      "categoryname": "Music",
+      "bgcolor": "FACFCF",
+      "text":
+          "{'quote':'Fashion is the armor to survive the reality of everyday life.','author':'Bill Cunningham'}"
+    },
+    {
+      "id": "6",
       "displaypicture": "assets/categories/music.png",
       "categoryname": "Music",
       "bgcolor": "FACFCF",

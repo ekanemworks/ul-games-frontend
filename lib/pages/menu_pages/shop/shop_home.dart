@@ -1,6 +1,8 @@
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:trivial_game/pages/menu_pages/shop/order_history.dart';
+import 'package:trivial_game/pages/menu_pages/shop/shop_cart.dart';
 import 'package:trivial_game/pages/menu_pages/shop/shop_product_details.dart';
 
 class ShopHome extends StatefulWidget {
@@ -51,6 +53,31 @@ class _ShopHomeState extends State<ShopHome> {
                 'Shop',
               ),
             ),
+            actions: [
+              IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => OrderHistory(),
+                    ),
+                  );
+                },
+                icon: Icon(Icons.shopping_bag),
+              ),
+              IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ShopCart(),
+                    ),
+                  );
+                },
+                icon: Icon(Icons.shopping_cart),
+              ),
+              SizedBox(width: 30)
+            ],
           ),
           body: SingleChildScrollView(
             child: Container(

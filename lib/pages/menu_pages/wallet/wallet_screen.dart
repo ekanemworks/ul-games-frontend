@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:trivial_game/pages/custom_layout/menu_icon.dart';
+import 'package:trivial_game/pages/menu_pages/wallet/fund_wallet.dart';
+import 'package:trivial_game/pages/menu_pages/wallet/withdraw_funds.dart';
 
 class WalletScreen extends StatefulWidget {
   @override
@@ -163,12 +165,12 @@ class _WalletScreenState extends State<WalletScreen> {
                                     fontWeight: FontWeight.bold),
                               ),
                               onPressed: () {
-                                // Navigator.push(
-                                //   context,
-                                //   MaterialPageRoute(
-                                //     builder: (context) => FundWallet(),
-                                //   ),
-                                // );
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => FundWallet(),
+                                  ),
+                                );
                               },
                               style: ElevatedButton.styleFrom(
                                 primary: Colors.transparent,
@@ -207,12 +209,12 @@ class _WalletScreenState extends State<WalletScreen> {
                                 ],
                               ),
                               onPressed: () {
-                                // Navigator.push(
-                                //   context,
-                                //   MaterialPageRoute(
-                                //     builder: (context) => WithdrawAmount(),
-                                //   ),
-                                // );
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => WithdrawFunds(),
+                                  ),
+                                );
                               },
                               style: ElevatedButton.styleFrom(
                                 primary: Colors.transparent,

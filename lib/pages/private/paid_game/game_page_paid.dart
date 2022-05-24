@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:trivial_game/pages/private/paid_game/game_result.dart';
 
@@ -7,6 +9,60 @@ class GamePagePaid extends StatefulWidget {
 }
 
 class _GamePagePaidState extends State<GamePagePaid> {
+  static const maxSeconds = 60;
+  int lifelineExtraSeconds = 10;
+  int seconds = maxSeconds;
+  Timer? timer;
+
+  bool lifeline5050isActive = true;
+  bool lifelineRemove1isActive = true;
+  bool lifelineBonusisActive = true;
+
+  String selectedValue = '';
+  String _questionText = 'Who was the 45th president of America';
+  List _options = [
+    {'value': 'a', 'option': 'Bill Clinton'},
+    {'value': 'b', 'option': 'George Bush'},
+    {'value': 'c', 'option': 'Buhari'},
+    {'value': 'd', 'option': 'Donald Trump'},
+  ];
+  List _questions = [
+    {
+      'question': 'Who was the 45th president of America',
+      'correctOption': '',
+      'options':
+          "[{'value': 'a', 'option': 'Bill Clinton'},{'value': 'b', 'option': 'George Bush'},{'value': 'c', 'option': 'Buhari'},{'value': 'd', 'option': 'Donald Trump'},]"
+    }
+  ];
+
+  @override
+  void initState() {
+    timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      if (seconds == 0) {
+        setState(() {
+          timer.cancel();
+        });
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => GameResult(),
+          ),
+        );
+      } else {
+        setState(() {
+          seconds--;
+        });
+      }
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    timer!.cancel();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -48,18 +104,12 @@ class _GamePagePaidState extends State<GamePagePaid> {
                         borderRadius: BorderRadius.circular(20.0),
                         border: Border.all(color: Color(0xffB6D5F7), width: 2),
                       ),
-                      child: Text('Q: 5/10'),
+                      child: Text('Q: 1/10'),
                     )
                   ],
                 ),
               ),
-              // question tracking: dots
-              // question tracking: dots
-              Container(
-                child: Row(
-                  children: [],
-                ),
-              ),
+
               // question board
               // question board
               Container(
@@ -70,6 +120,7 @@ class _GamePagePaidState extends State<GamePagePaid> {
                   children: [
                     Container(
                       height: 200,
+                      width: double.maxFinite,
                       // color: Colors.pink,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
@@ -81,6 +132,13 @@ class _GamePagePaidState extends State<GamePagePaid> {
                         border: Border.all(
                           color: Color(0xffB6D5F7),
                           width: 5,
+                        ),
+                      ),
+                      child: Center(
+                        child: Text(
+                          _questionText,
+                          style: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold),
                         ),
                       ),
                     ),
@@ -96,60 +154,200 @@ class _GamePagePaidState extends State<GamePagePaid> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Container(
-                              height: 100,
-                              width: 80,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                border: Border.all(
-                                  color: Color(0xff1971D2),
-                                  width: 3,
-                                ),
-                                shape: BoxShape.circle,
-                              ),
-                              child: Center(
-                                child: Text(
-                                  '50/50',
-                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                            ),
-                            Container(
-                              height: 120,
-                              width: 80,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                border: Border.all(
-                                  color: Color(0xff1971D2),
-                                  width: 3,
-                                ),
-                                shape: BoxShape.circle,
-                              ),
-                              child: Center(
-                                child: Text(
-                                  '-1 Option',
-                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                            ),
-                            Container(
-                              height: 100,
-                              width: 80,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                border: Border.all(
-                                  color: Color(0xff1971D2),
-                                  width: 3,
-                                ),
-                                shape: BoxShape.circle,
-                              ),
-                              child: Center(
-                                child: Text(
-                                  'Bonus',
-                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                            ),
+                            // 50/50 LIFELINE
+                            // 50/50 LIFELINE
+                            lifeline5050isActive
+                                ? InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        seconds =
+                                            seconds + lifelineExtraSeconds;
+                                        lifeline5050isActive = false;
+                                      });
+                                    },
+                                    child: Container(
+                                      height: 100,
+                                      width: 80,
+                                      decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                          colors: [
+                                            Color(0xffffffff),
+                                            Color(0xfff2f2f2)
+                                          ],
+                                          begin: Alignment.topCenter,
+                                          end: Alignment.bottomCenter,
+                                        ),
+                                        border: Border.all(
+                                          color: Color(0xff1971D2),
+                                          width: 5,
+                                        ),
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          '50/50',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    ),
+                                  )
+                                : Container(
+                                    height: 100,
+                                    width: 80,
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          Color(0xff999999),
+                                          Color(0xff999999)
+                                        ],
+                                        begin: Alignment.topCenter,
+                                        end: Alignment.bottomCenter,
+                                      ),
+                                      border: Border.all(
+                                        color: Color(0xff1971D2),
+                                        width: 5,
+                                      ),
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        '50/50',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                  ),
+
+                            // REMOVE ONE LIFELINE
+                            // REMOVE ONE LIFELINE
+                            lifelineRemove1isActive == true
+                                ? InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        seconds =
+                                            seconds + lifelineExtraSeconds;
+                                        lifelineRemove1isActive = false;
+                                      });
+                                    },
+                                    child: Container(
+                                      height: 120,
+                                      width: 80,
+                                      decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                          colors: [
+                                            Color(0xffffffff),
+                                            Color(0xfff2f2f2)
+                                          ],
+                                          begin: Alignment.topCenter,
+                                          end: Alignment.bottomCenter,
+                                        ),
+                                        border: Border.all(
+                                          color: Color(0xff1971D2),
+                                          width: 5,
+                                        ),
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          ' -1 Opt',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    ),
+                                  )
+                                : Container(
+                                    height: 120,
+                                    width: 80,
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          Color(0xff999999),
+                                          Color(0xff999999)
+                                        ],
+                                        begin: Alignment.topCenter,
+                                        end: Alignment.bottomCenter,
+                                      ),
+                                      border: Border.all(
+                                        color: Color(0xff1971D2),
+                                        width: 5,
+                                      ),
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        ' -1 Opt',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                  ),
+
+                            // BONUS LIFELINE
+                            // BONUS LIFELINE
+                            lifelineBonusisActive == true
+                                ? InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        seconds =
+                                            seconds + lifelineExtraSeconds;
+                                        lifelineBonusisActive = false;
+                                      });
+                                    },
+                                    child: Container(
+                                      height: 100,
+                                      width: 80,
+                                      decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                          colors: [
+                                            Color(0xffffffff),
+                                            Color(0xfff2f2f2)
+                                          ],
+                                          begin: Alignment.topCenter,
+                                          end: Alignment.bottomCenter,
+                                        ),
+                                        border: Border.all(
+                                          color: Color(0xff1971D2),
+                                          width: 5,
+                                        ),
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Center(
+                                        child: Text(
+                                          'Bonus',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    ),
+                                  )
+                                : Container(
+                                    height: 100,
+                                    width: 80,
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          Color(0xff999999),
+                                          Color(0xff999999)
+                                        ],
+                                        begin: Alignment.topCenter,
+                                        end: Alignment.bottomCenter,
+                                      ),
+                                      border: Border.all(
+                                        color: Color(0xff1971D2),
+                                        width: 5,
+                                      ),
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        'Bonus',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ),
+                                  ),
                           ],
                         ),
                       ),
@@ -157,143 +355,158 @@ class _GamePagePaidState extends State<GamePagePaid> {
                   ],
                 ),
               ),
+
               // TIMER DISPLAY
               // TIMER DISPLAY
+
               Expanded(
-                child: InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => GameResult(),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    buildTimer(),
+                  ],
+                ),
+              ),
+
+              // Navigation:: Next or Back
+              // Navigation:: Next or Back
+              Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    // Back Question
+                    // Back Question
+                    OutlinedButton(
+                      style: OutlinedButton.styleFrom(
+                        shape: StadiumBorder(),
+                        side: BorderSide(width: 1, color: Colors.grey),
                       ),
-                    );
-                  },
-                  child: Container(
-                    height: 100,
-                    width: 100,
-                    margin: EdgeInsets.only(top: 30),
-                    decoration: BoxDecoration(
-                      color: Colors.green,
-                      shape: BoxShape.circle,
+                      onPressed: () {},
+                      child: Text(
+                        'Back',
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
-                  ),
+
+                    // Next Question
+                    // Next Question
+                    OutlinedButton(
+                      style: OutlinedButton.styleFrom(
+                        shape: StadiumBorder(),
+                        side: BorderSide(width: 1, color: Colors.grey),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => GameResult(),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        'Next Question',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ],
                 ),
               ),
               // ANSWER OPTIONS
               // ANSWER OPTIONS
               Container(
                 height: 350,
-                padding: EdgeInsets.only(top: 20, bottom: 20),
+                padding: EdgeInsets.only(bottom: 20),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      height: 70,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30.0),
-                        color: Colors.white,
-                      ),
-                      child: Row(
-                        children: [
-                          Radio(
-                            value: 'a',
-                            groupValue: 'groupValue',
-                            onChanged: (value) {
-                              print('ssasa');
-                            },
-                          ),
-                          Text(
-                            'Mission Impossible',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: _options
+                      .map((e) => Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(20),
+                              ),
                             ),
-                          )
-                        ],
-                      ),
-                    ),
-                    Container(
-                      height: 70,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30.0),
-                        color: Colors.white,
-                      ),
-                      child: Row(
-                        children: [
-                          Radio(
-                            value: 'a',
-                            groupValue: 'groupValue',
-                            onChanged: (value) {
-                              print('ssasa');
-                            },
-                          ),
-                          Text(
-                            'Justice League',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
+                            child: RadioListTile<String>(
+                              value: e['value'],
+                              groupValue: selectedValue,
+                              title: Text(e['option']),
+                              onChanged: (value) {
+                                setState(() {
+                                  selectedValue = value!;
+                                });
+                              },
                             ),
-                          )
-                        ],
-                      ),
-                    ),
-                    Container(
-                      height: 70,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30.0),
-                        color: Colors.white,
-                      ),
-                      child: Row(
-                        children: [
-                          Radio(
-                            value: 'a',
-                            groupValue: 'groupValue',
-                            onChanged: (value) {
-                              print('ssasa');
-                            },
-                          ),
-                          Text(
-                            'Batman',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    Container(
-                      height: 70,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30.0),
-                        color: Colors.white,
-                      ),
-                      child: Row(
-                        children: [
-                          Radio(
-                            value: 'a',
-                            groupValue: 'groupValue',
-                            onChanged: (value) {
-                              print('ssasa');
-                            },
-                          ),
-                          Text(
-                            'Titanic',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ],
+                          ))
+                      .toList(),
+
+                  // [
+                  // OPTION: D
+                  // OPTION: D
+                  // InkWell(
+                  //   onTap: () {},
+                  //   child: Container(
+                  //     height: 70,
+                  //     decoration: BoxDecoration(
+                  //       borderRadius: BorderRadius.circular(30.0),
+                  //       color: Colors.white,
+                  //     ),
+                  //     child: Row(
+                  //       children: [
+                  //         Radio(
+                  //           value: 'a',
+                  //           groupValue: 'groupValue',
+                  //           onChanged: (value) {
+                  //             print('ssasa');
+                  //           },
+                  //         ),
+                  //         Text(
+                  //           'Titanic',
+                  //           style: TextStyle(
+                  //             color: Colors.black,
+                  //             fontSize: 20,
+                  //           ),
+                  //         )
+                  //       ],
+                  //     ),
+                  //   ),
+                  // ),
+                  // ],
                 ),
               ),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget buildTime() {
+    return Text(
+      '$seconds',
+      style: TextStyle(
+          fontWeight: FontWeight.bold, color: Colors.white, fontSize: 30),
+    );
+  }
+
+  Widget buildTimer() {
+    return SizedBox(
+      width: 100,
+      height: 100,
+      child: Stack(
+        fit: StackFit.expand,
+        children: [
+          CircularProgressIndicator(
+            value: seconds / maxSeconds,
+            valueColor: AlwaysStoppedAnimation(
+              Colors.white,
+            ),
+            strokeWidth: 12,
+            backgroundColor: Color(0xff2185F5),
+          ),
+          Center(
+            child: buildTime(),
+          )
+        ],
       ),
     );
   }

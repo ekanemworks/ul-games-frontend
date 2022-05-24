@@ -85,7 +85,7 @@ class _ForgetpasswordPageState extends State<ForgetpasswordPage> {
                       // color: Colors.red,
                       height: 450,
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        // color: Colors.white,
                         borderRadius: BorderRadius.circular(20.0),
                       ),
                       padding: EdgeInsets.only(right: 25, left: 25),
@@ -96,7 +96,7 @@ class _ForgetpasswordPageState extends State<ForgetpasswordPage> {
                           children: [
                             Container(
                               alignment: Alignment.center,
-                              padding: EdgeInsets.only(bottom: 29),
+                              padding: EdgeInsets.only(bottom: 20),
                               child: Text(
                                 'Enter your phone number to reset',
                                 style: TextStyle(
@@ -110,7 +110,7 @@ class _ForgetpasswordPageState extends State<ForgetpasswordPage> {
                               child: TextFormField(
                                 decoration: const InputDecoration(
                                   labelText: 'Phone Number ',
-                                  fillColor: Colors.white,
+                                  // fillColor: Colors.white,
                                   filled: true,
                                   prefix: Text('+234'),
                                 ),
@@ -149,7 +149,7 @@ class _ForgetpasswordPageState extends State<ForgetpasswordPage> {
                                 height: 55,
                                 child: ElevatedButton(
                                   child: const Text(
-                                    'Reset',
+                                    'Send Reset OTP',
                                     style: TextStyle(
                                         fontSize: 18, color: Colors.white),
                                   ),
@@ -179,7 +179,7 @@ class _ForgetpasswordPageState extends State<ForgetpasswordPage> {
                                     children: [
                                       Icon(
                                         Icons.arrow_back,
-                                        color: Colors.black,
+                                        // color: Colors.black,
                                       ),
                                       SizedBox(
                                         width: 5,
@@ -188,7 +188,7 @@ class _ForgetpasswordPageState extends State<ForgetpasswordPage> {
                                         'Back',
                                         style: TextStyle(
                                           fontSize: 18,
-                                          color: Colors.black,
+                                          // color: Colors.black,
                                           letterSpacing: 0.8,
                                         ),
                                       ),

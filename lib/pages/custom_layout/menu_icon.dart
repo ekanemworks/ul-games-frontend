@@ -3,7 +3,7 @@ import 'package:trivial_game/pages/menu_pages/help_screen.dart';
 import 'package:trivial_game/pages/menu_pages/notification.dart';
 import 'package:trivial_game/pages/menu_pages/profile_edit.dart';
 import 'package:trivial_game/pages/menu_pages/shop/shop_home.dart';
-import 'package:trivial_game/pages/menu_pages/wallet_screen.dart';
+import 'package:trivial_game/pages/menu_pages/wallet/wallet_screen.dart';
 import 'package:trivial_game/pages/public/login_page.dart';
 import 'package:trivial_game/pages/public/start_screen.dart';
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trivial_game/pages/public/otp_confirmation.dart';
 
 class Otp extends StatefulWidget {
   @override
@@ -21,10 +22,24 @@ class _OtpState extends State<Otp> {
               fit: BoxFit.cover),
         ),
         child: Scaffold(
+          backgroundColor: Colors.transparent,
           appBar: AppBar(
             foregroundColor: Colors.black,
             backgroundColor: Colors.transparent, // 1
             elevation: 0,
+            title: Align(
+              alignment: Alignment.centerLeft,
+              child: Container(
+                height: 60,
+                width: 80,
+                decoration: const BoxDecoration(
+                  // in container if you want to show a background image you need box decoration
+                  image: DecorationImage(
+                      image: AssetImage('assets/main/titleLogo.png'),
+                      fit: BoxFit.cover),
+                ),
+              ),
+            ),
           ),
           body: SingleChildScrollView(
             child: Center(
@@ -42,30 +57,34 @@ class _OtpState extends State<Otp> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      padding: EdgeInsets.only(bottom: 10),
-                      child: Text(
-                        'Forgot Password?',
-                        style: TextStyle(
-                          fontSize: 29,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      padding: EdgeInsets.only(bottom: 29),
-                      child: Text(
-                        'Safely recover your password',
-                        style: TextStyle(fontSize: 18),
-                      ),
-                    ),
+                    // Container(
+                    //   alignment: Alignment.centerLeft,
+                    //   padding: EdgeInsets.only(bottom: 10),
+                    //   child: Text(
+                    //     'Forgot Password?',
+                    //     style: TextStyle(
+                    //       fontSize: 29,
+                    //       fontWeight: FontWeight.bold,
+                    //       color: Colors.white,
+                    //     ),
+                    //   ),
+                    // ),
+                    // Container(
+                    //   alignment: Alignment.centerLeft,
+                    //   padding: EdgeInsets.only(bottom: 29),
+                    //   child: Text(
+                    //     'Safely recover your password',
+                    //     style: TextStyle(
+                    //       fontSize: 18,
+                    //       color: Colors.white,
+                    //     ),
+                    //   ),
+                    // ),
                     Container(
                       // color: Colors.red,
                       height: 450,
                       decoration: BoxDecoration(
-                        color: Color(0xffEFB996),
+                        // color: Colors.white,
                         borderRadius: BorderRadius.circular(20.0),
                       ),
                       padding: EdgeInsets.only(right: 25, left: 25),
@@ -75,7 +94,8 @@ class _OtpState extends State<Otp> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Container(
-                              alignment: Alignment.centerLeft,
+                              alignment: Alignment.center,
+                              padding: EdgeInsets.only(bottom: 20),
                               child: Text(
                                 'Enter the OTP sent to your device',
                                 style: TextStyle(
@@ -84,21 +104,17 @@ class _OtpState extends State<Otp> {
                             ),
                             // phone number
                             Padding(
-                              padding: const EdgeInsets.only(top: 23),
+                              padding:
+                                  const EdgeInsets.only(top: 23, bottom: 15),
                               child: TextFormField(
                                 decoration: const InputDecoration(
-                                  labelText: 'OTP',
-                                  fillColor: Colors.white,
+                                  labelText: 'OTP ',
+                                  // fillColor: Colors.white,
                                   filled: true,
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(23.0),
-                                    ),
-                                  ),
                                 ),
                                 validator: (value) {
                                   if (value!.isEmpty) {
-                                    return 'Enter Phone Number';
+                                    return 'Enter OTP';
                                   }
 
                                   if (!RegExp(
@@ -116,16 +132,22 @@ class _OtpState extends State<Otp> {
                             const SizedBox(height: 20),
                             Container(
                               decoration: BoxDecoration(
-                                color: Color(0xff394A5F),
+                                gradient: LinearGradient(
+                                  colors: [
+                                    Color(0xffEE5E04),
+                                    Color(0xff813404)
+                                  ],
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter,
+                                ),
                                 borderRadius: BorderRadius.circular(23.0),
-                                border: Border.all(color: Colors.black),
                               ),
                               child: SizedBox(
                                 width: double.maxFinite, // <-- Your width
                                 height: 55,
                                 child: ElevatedButton(
                                   child: const Text(
-                                    'Confirm',
+                                    'Reset',
                                     style: TextStyle(
                                         fontSize: 18, color: Colors.white),
                                   ),
@@ -133,7 +155,7 @@ class _OtpState extends State<Otp> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => Otp(),
+                                        builder: (context) => OtpConfirmation(),
                                       ),
                                     );
                                   },
@@ -155,7 +177,7 @@ class _OtpState extends State<Otp> {
                                     children: [
                                       Icon(
                                         Icons.arrow_back,
-                                        color: Colors.black,
+                                        // color: Colors.black,
                                       ),
                                       SizedBox(
                                         width: 5,
@@ -164,7 +186,7 @@ class _OtpState extends State<Otp> {
                                         'Back',
                                         style: TextStyle(
                                           fontSize: 18,
-                                          color: Colors.black,
+                                          // color: Colors.black,
                                           letterSpacing: 0.8,
                                         ),
                                       ),
