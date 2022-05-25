@@ -172,7 +172,7 @@ class _GamePagePaidState extends State<GamePagePaid> {
                                         gradient: LinearGradient(
                                           colors: [
                                             Color(0xffffffff),
-                                            Color(0xfff2f2f2)
+                                            Color(0xff999999)
                                           ],
                                           begin: Alignment.topCenter,
                                           end: Alignment.bottomCenter,

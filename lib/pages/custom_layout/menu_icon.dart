@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:trivial_game/pages/menu_pages/help_screen.dart';
 import 'package:trivial_game/pages/menu_pages/notification.dart';
 import 'package:trivial_game/pages/menu_pages/profile_edit.dart';
+import 'package:trivial_game/pages/menu_pages/settings.dart';
 import 'package:trivial_game/pages/menu_pages/shop/shop_home.dart';
 import 'package:trivial_game/pages/menu_pages/wallet/wallet_screen.dart';
 import 'package:trivial_game/pages/public/login_page.dart';
@@ -19,6 +20,13 @@ class _MenuIconState extends State<MenuIcon> {
         context,
         MaterialPageRoute(
           builder: (context) => ProfileEdit(),
+        ),
+      );
+    } else if (value == 'Settings') {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => Settings(),
         ),
       );
     } else if (value == 'My Wallet') {
@@ -79,8 +87,14 @@ class _MenuIconState extends State<MenuIcon> {
             padding: EdgeInsets.only(left: 30),
             onSelected: handleClick,
             itemBuilder: (BuildContext context) {
-              return {'Profile', 'My Wallet', 'Shop', 'Help', 'Log out'}
-                  .map((String choice) {
+              return {
+                'Profile',
+                'Settings',
+                'My Wallet',
+                'Shop',
+                'Help',
+                'Log out'
+              }.map((String choice) {
                 return PopupMenuItem<String>(
                   value: choice,
                   child: SizedBox(
@@ -90,13 +104,15 @@ class _MenuIconState extends State<MenuIcon> {
                         Icon(
                           choice == 'Profile'
                               ? Icons.person
-                              : choice == 'My Wallet'
-                                  ? Icons.monetization_on
-                                  : choice == 'Shop'
-                                      ? Icons.shopping_bag
-                                      : choice == 'Help'
-                                          ? Icons.help
-                                          : Icons.logout,
+                              : choice == 'Settings'
+                                  ? Icons.settings
+                                  : choice == 'My Wallet'
+                                      ? Icons.monetization_on
+                                      : choice == 'Shop'
+                                          ? Icons.shopping_bag
+                                          : choice == 'Help'
+                                              ? Icons.help
+                                              : Icons.logout,
                           size: 30,
                           color: Colors.red,
                         ),

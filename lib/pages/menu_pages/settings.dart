@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:trivial_game/pages/custom_layout/menu_icon.dart';
 
-class ProfileEdit extends StatefulWidget {
+class Settings extends StatefulWidget {
   @override
-  _ProfileEditState createState() => _ProfileEditState();
+  _SettingsState createState() => _SettingsState();
 }
 
-class _ProfileEditState extends State<ProfileEdit> {
-  final GlobalKey<FormState> _editFormKey = GlobalKey<FormState>();
+class _SettingsState extends State<Settings> {
+  final GlobalKey<FormState> _settingsFormKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -42,43 +41,12 @@ class _ProfileEditState extends State<ProfileEdit> {
               child: Column(
                 children: [
                   Container(
-                    width: 120,
-                    height: 120,
-                    margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-                    // color: Colors.purple,
-                    // child: Image.asset('assets/default.png'),
-
-                    child: Stack(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(120),
-                          child: Image.asset(
-                            'assets/main/titleLogo.png',
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        Positioned(
-                          bottom: 0.0,
-                          right: 5.0,
-                          child: Container(
-                            height: 30,
-                            width: 30,
-                            child: Icon(Icons.camera_alt,
-                                color: Colors.white, size: 15),
-                            decoration: BoxDecoration(
-                                color: Colors.green, shape: BoxShape.circle),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Container(
                     // color: Colors.deepPurple,
                     // width: 100,
                     // margin: const EdgeInsets.only(left: 40, right: 40),
                     height: 400,
                     child: Form(
-                      key: _editFormKey,
+                      key: _settingsFormKey,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
@@ -87,10 +55,10 @@ class _ProfileEditState extends State<ProfileEdit> {
                             child: TextFormField(
                               // initialValue: _profileName,
                               decoration: const InputDecoration(
-                                  labelText: 'Profile Name'),
+                                  labelText: 'Current password'),
                               validator: (value) {
                                 if (value!.isEmpty) {
-                                  return 'Profile name cannot be empty';
+                                  return 'please enter value';
                                 }
                               },
                               onSaved: (value) {
@@ -102,29 +70,11 @@ class _ProfileEditState extends State<ProfileEdit> {
                             padding: EdgeInsets.only(top: 10),
                             child: TextFormField(
                               // initialValue: _profileUsername,
-                              decoration:
-                                  const InputDecoration(labelText: 'Email'),
-                              validator: (value) {
-                                if (value!.isEmpty) {
-                                  return 'username cannot be empty';
-                                }
-                              },
-                              onSaved: (value) {
-                                // _profileUsername = value!;
-                              },
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(top: 10),
-                            child: TextFormField(
-                              // initialValue: _profileUsername,
                               decoration: const InputDecoration(
-                                labelText: 'Phone Number',
-                                prefix: Text('+234'),
-                              ),
+                                  labelText: 'New password'),
                               validator: (value) {
                                 if (value!.isEmpty) {
-                                  return 'username cannot be empty';
+                                  return 'required';
                                 }
                               },
                               onSaved: (value) {
@@ -161,7 +111,7 @@ class _ProfileEditState extends State<ProfileEdit> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     const Text(
-                                      'Save All',
+                                      'Update',
                                       style: TextStyle(
                                           fontSize: 14,
                                           color: Colors.white,
@@ -170,10 +120,11 @@ class _ProfileEditState extends State<ProfileEdit> {
                                   ],
                                 ),
                                 onPressed: () {
-                                  if (!_editFormKey.currentState!.validate()) {
+                                  if (!_settingsFormKey.currentState!
+                                      .validate()) {
                                     return;
                                   }
-                                  _editFormKey.currentState!.save();
+                                  _settingsFormKey.currentState!.save();
 
                                   // Navigator.push(
                                   //   context,
