@@ -32,6 +32,60 @@ class _GamePagePaidState extends State<GamePagePaid> {
       'correctOption': '',
       'options':
           "[{'value': 'a', 'option': 'Bill Clinton'},{'value': 'b', 'option': 'George Bush'},{'value': 'c', 'option': 'Buhari'},{'value': 'd', 'option': 'Donald Trump'},]"
+    },
+    {
+      'question': 'Who was the 45th president of America',
+      'correctOption': '',
+      'options':
+          "[{'value': 'a', 'option': 'Bill Clinton'},{'value': 'b', 'option': 'George Bush'},{'value': 'c', 'option': 'Buhari'},{'value': 'd', 'option': 'Donald Trump'},]"
+    },
+    {
+      'question': 'Who was the 45th president of America',
+      'correctOption': '',
+      'options':
+          "[{'value': 'a', 'option': 'Bill Clinton'},{'value': 'b', 'option': 'George Bush'},{'value': 'c', 'option': 'Buhari'},{'value': 'd', 'option': 'Donald Trump'},]"
+    },
+    {
+      'question': 'Who was the 45th president of America',
+      'correctOption': '',
+      'options':
+          "[{'value': 'a', 'option': 'Bill Clinton'},{'value': 'b', 'option': 'George Bush'},{'value': 'c', 'option': 'Buhari'},{'value': 'd', 'option': 'Donald Trump'},]"
+    },
+    {
+      'question': 'Who was the 45th president of America',
+      'correctOption': '',
+      'options':
+          "[{'value': 'a', 'option': 'Bill Clinton'},{'value': 'b', 'option': 'George Bush'},{'value': 'c', 'option': 'Buhari'},{'value': 'd', 'option': 'Donald Trump'},]"
+    },
+    {
+      'question': 'Who was the 45th president of America',
+      'correctOption': '',
+      'options':
+          "[{'value': 'a', 'option': 'Bill Clinton'},{'value': 'b', 'option': 'George Bush'},{'value': 'c', 'option': 'Buhari'},{'value': 'd', 'option': 'Donald Trump'},]"
+    },
+    {
+      'question': 'Who was the 45th president of America',
+      'correctOption': '',
+      'options':
+          "[{'value': 'a', 'option': 'Bill Clinton'},{'value': 'b', 'option': 'George Bush'},{'value': 'c', 'option': 'Buhari'},{'value': 'd', 'option': 'Donald Trump'},]"
+    },
+    {
+      'question': 'Who was the 45th president of America',
+      'correctOption': '',
+      'options':
+          "[{'value': 'a', 'option': 'Bill Clinton'},{'value': 'b', 'option': 'George Bush'},{'value': 'c', 'option': 'Buhari'},{'value': 'd', 'option': 'Donald Trump'},]"
+    },
+    {
+      'question': 'Who was the 45th president of America',
+      'correctOption': '',
+      'options':
+          "[{'value': 'a', 'option': 'Bill Clinton'},{'value': 'b', 'option': 'George Bush'},{'value': 'c', 'option': 'Buhari'},{'value': 'd', 'option': 'Donald Trump'},]"
+    },
+    {
+      'question': 'Who was the 45th president of America',
+      'correctOption': '',
+      'options':
+          "[{'value': 'a', 'option': 'Bill Clinton'},{'value': 'b', 'option': 'George Bush'},{'value': 'c', 'option': 'Buhari'},{'value': 'd', 'option': 'Donald Trump'},]"
     }
   ];
 
@@ -110,11 +164,31 @@ class _GamePagePaidState extends State<GamePagePaid> {
                 ),
               ),
 
-              // question board
-              // question board
+              // Question tracker
+              // Question tracker
               Container(
                 width: double.maxFinite,
-                margin: EdgeInsets.only(top: 20),
+                margin: EdgeInsets.only(top: 15, bottom: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: _questions.map((e) {
+                    return Container(
+                      height: 10,
+                      width: 10,
+                      margin: EdgeInsets.symmetric(horizontal: 4),
+                      decoration: BoxDecoration(
+                        color: Colors.grey,
+                        shape: BoxShape.circle,
+                      ),
+                    );
+                  }).toList(),
+                ),
+              ),
+
+              // question board
+              // question board
+              SizedBox(
+                width: double.maxFinite,
                 height: 240,
                 child: Stack(
                   children: [
@@ -237,7 +311,7 @@ class _GamePagePaidState extends State<GamePagePaid> {
                                         gradient: LinearGradient(
                                           colors: [
                                             Color(0xffffffff),
-                                            Color(0xfff2f2f2)
+                                            Color(0xff999999)
                                           ],
                                           begin: Alignment.topCenter,
                                           end: Alignment.bottomCenter,
@@ -302,7 +376,7 @@ class _GamePagePaidState extends State<GamePagePaid> {
                                         gradient: LinearGradient(
                                           colors: [
                                             Color(0xffffffff),
-                                            Color(0xfff2f2f2)
+                                            Color(0xff999999)
                                           ],
                                           begin: Alignment.topCenter,
                                           end: Alignment.bottomCenter,
@@ -371,44 +445,24 @@ class _GamePagePaidState extends State<GamePagePaid> {
               // Navigation:: Next or Back
               // Navigation:: Next or Back
               Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    // Back Question
-                    // Back Question
-                    OutlinedButton(
-                      style: OutlinedButton.styleFrom(
-                        shape: StadiumBorder(),
-                        side: BorderSide(width: 1, color: Colors.grey),
+                alignment: Alignment.centerRight,
+                child: OutlinedButton(
+                  style: OutlinedButton.styleFrom(
+                    shape: StadiumBorder(),
+                    side: BorderSide(width: 1, color: Colors.grey),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => GameResult(),
                       ),
-                      onPressed: () {},
-                      child: Text(
-                        'Back',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-
-                    // Next Question
-                    // Next Question
-                    OutlinedButton(
-                      style: OutlinedButton.styleFrom(
-                        shape: StadiumBorder(),
-                        side: BorderSide(width: 1, color: Colors.grey),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => GameResult(),
-                          ),
-                        );
-                      },
-                      child: Text(
-                        'Next Question',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                  ],
+                    );
+                  },
+                  child: Text(
+                    'Next Question',
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               ),
               // ANSWER OPTIONS

@@ -55,10 +55,15 @@ class _RedeemRewardState extends State<RedeemReward> {
                       // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                            child: Text(
-                          'Win: N 2,000 ',
-                          style: TextStyle(color: Colors.grey),
-                        )),
+                          child: Text(
+                            'Your Win: ₦2,000 ',
+                            style: TextStyle(
+                              color: Colors.orange,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 25,
+                            ),
+                          ),
+                        ),
                         SizedBox(height: 20),
                         Text(
                           'Choose the Nature of Reward',
@@ -83,11 +88,14 @@ class _RedeemRewardState extends State<RedeemReward> {
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Icon(
-                                      Icons.monetization_on,
-                                      size: 60,
-                                      color: Colors.white,
+                                    Text(
+                                      '₦',
+                                      style: TextStyle(
+                                        fontSize: 40,
+                                        color: Colors.white,
+                                      ),
                                     ),
+                                    SizedBox(height: 10),
                                     Text('Cash')
                                   ],
                                 ),
@@ -110,6 +118,7 @@ class _RedeemRewardState extends State<RedeemReward> {
                                       size: 60,
                                       color: Colors.white,
                                     ),
+                                    SizedBox(height: 10),
                                     Text('Airtime')
                                   ],
                                 ),
@@ -131,7 +140,7 @@ class _RedeemRewardState extends State<RedeemReward> {
                                   ),
                                 ),
                                 child: Text(
-                                  'Cash Balance: ₦202,000',
+                                  'New Balance: ₦202,000',
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold),

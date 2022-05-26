@@ -69,7 +69,7 @@ class _WalletScreenState extends State<WalletScreen> {
                         ),
                         SizedBox(height: 10),
                         const Text(
-                          '₦ 200,700',
+                          '₦ 650,700',
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,

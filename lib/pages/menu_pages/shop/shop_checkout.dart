@@ -10,8 +10,8 @@ class _ShopCheckOutState extends State<ShopCheckOut> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String _address = '';
   String _altphone = '';
-  String _deliveryCity = 'Select States';
-  List _deliveryCityList = ['Select States', '', 'Abia'];
+  String _deliveryCity = 'Select City';
+  List _deliveryCityList = ['Select City', '', 'Surulere', 'Victoria-Island'];
 
   String _deliveryState = 'Select States';
   List _deliveryStateList = ['Select States', '', 'Abia'];

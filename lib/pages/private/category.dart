@@ -161,8 +161,9 @@ class _CategoryState extends State<Category> {
                                   _potentialWin = 0.0;
                                 }
                               });
-                              // Close dialog and open again
-                              // Close dialog and open again
+
+                              // Close dialog and open again: to reflect change
+                              // Close dialog and open again: to reflect change
                               Navigator.pop(context); // Close
                               openStakeDialog(context); // Open
                             },
@@ -217,8 +218,12 @@ class _CategoryState extends State<Category> {
                                   TextStyle(fontSize: 18, color: Colors.white),
                             ),
                             onPressed: () {
-                              Navigator.pop(context); // Close old
-                              openStakeSummaryDialog(context); // open new
+                              // CONDITION TO CHECK IF AMOUNT HAS BEEN ENTERED
+                              if (_potentialWin == 0.0) {
+                              } else {
+                                Navigator.pop(context); // Close old
+                                openStakeSummaryDialog(context); // open new
+                              }
                             },
                             style: ElevatedButton.styleFrom(
                               primary: Colors.transparent,
@@ -435,6 +440,202 @@ class _CategoryState extends State<Category> {
   // END OF STAKE SUMMARY DIALOG
   // END OF STAKE SUMMARY DIALOG
 
+  // START OF RULES DIALOG
+  // START OF RULES DIALOG
+  openRulesDialog(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.0),
+          ),
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Color(0xff216DBD), Color(0xff216DBD)],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+              borderRadius: BorderRadius.circular(20.0),
+            ),
+            height: 480,
+            child: Column(
+              children: [
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.only(left: 20, right: 20),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'Rules',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                fontSize: 20),
+                          ),
+                        ),
+                        Container(
+                          child: Row(
+                            children: [
+                              Container(
+                                height: 60,
+                                width: 80,
+                                decoration: const BoxDecoration(
+                                  // in container if you want to show a background image you need box decoration
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          'assets/lifeline/lifeline1.png'),
+                                      fit: BoxFit.cover),
+                                ),
+                              ),
+                              Expanded(
+                                  child: Padding(
+                                padding: const EdgeInsets.only(left: 8.0),
+                                child: Text(
+                                  'This lifeline removes two incorrect answers from the options.',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ))
+                            ],
+                          ),
+                        ),
+                        Container(
+                          child: Row(
+                            children: [
+                              Container(
+                                height: 60,
+                                width: 80,
+                                decoration: const BoxDecoration(
+                                  // in container if you want to show a background image you need box decoration
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          'assets/lifeline/lifeline2.png'),
+                                      fit: BoxFit.cover),
+                                ),
+                              ),
+                              Expanded(
+                                  child: Padding(
+                                padding: const EdgeInsets.only(left: 8.0),
+                                child: Text(
+                                  'This lifeline deletes an incorrect answer from the options.',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ))
+                            ],
+                          ),
+                        ),
+                        Container(
+                          child: Row(
+                            children: [
+                              Container(
+                                height: 60,
+                                width: 80,
+                                decoration: const BoxDecoration(
+                                  // in container if you want to show a background image you need box decoration
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          'assets/lifeline/lifeline3.png'),
+                                      fit: BoxFit.cover),
+                                ),
+                              ),
+                              Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 8.0),
+                                  child: Text(
+                                    'This lifeline selects the correct answer from the options.',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        Container(
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: Padding(
+                                  padding:
+                                      const EdgeInsets.only(left: 8.0, top: 30),
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        'Once a question is passed, it cannot be revered',
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      Text(
+                                        'Each lifeline has a cost will attract a fee. Lifelines can be used only once',
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+
+                        // START OF BUTTON
+                        // START OF BUTTON
+                        Container(
+                          decoration: BoxDecoration(
+                            color: Color(0xff184676),
+                            borderRadius: BorderRadius.circular(10.0),
+                            border: Border.all(
+                              color: Colors.white,
+                            ),
+                          ),
+                          margin: EdgeInsets.all(5),
+                          child: SizedBox(
+                            height: 50,
+                            width: double.maxFinite,
+                            child: ElevatedButton(
+                              child: const Text(
+                                'okay',
+                                style: TextStyle(
+                                    fontSize: 18, color: Colors.white),
+                              ),
+                              onPressed: () {
+                                Navigator.pop(context); // Close old
+                              },
+                              style: ElevatedButton.styleFrom(
+                                primary: Colors.transparent,
+                                shadowColor: Colors.transparent,
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+  // END OF RULES DIALOG
+  // END OF RULES DIALOG
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -476,7 +677,7 @@ class _CategoryState extends State<Category> {
                   ),
                 ),
                 Container(
-                  color: Colors.grey,
+                  color: Color(0xff021B34),
                   height: 190,
                 ),
                 Container(
@@ -530,7 +731,9 @@ class _CategoryState extends State<Category> {
                               style:
                                   TextStyle(fontSize: 18, color: Colors.white),
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              openRulesDialog(context);
+                            },
                             style: ElevatedButton.styleFrom(
                               primary: Colors.transparent,
                               shadowColor: Colors.transparent,
