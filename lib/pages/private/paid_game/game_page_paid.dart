@@ -96,15 +96,15 @@ class _GamePagePaidState extends State<GamePagePaid> {
         setState(() {
           timer.cancel();
         });
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => GameResult(),
-          ),
-        );
+        // Navigator.push(
+        //   context,
+        //   MaterialPageRoute(
+        //     builder: (context) => GameResult(),
+        //   ),
+        // );
       } else {
         setState(() {
-          seconds--;
+          // seconds--;
         });
       }
     });
@@ -468,12 +468,12 @@ class _GamePagePaidState extends State<GamePagePaid> {
               // ANSWER OPTIONS
               // ANSWER OPTIONS
               Container(
-                height: 350,
                 padding: EdgeInsets.only(bottom: 20),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: _options
                       .map((e) => Container(
+                            margin: EdgeInsets.symmetric(vertical: 5),
                             decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.all(
